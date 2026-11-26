@@ -1,0 +1,1767 @@
+{
+ "split": "validation",
+ "clips": 34,
+ "rules": {
+  "bind_duration_s": 0.4,
+  "bind_distance": 0.04,
+  "ambiguity_margin": 0.02,
+  "minimum_motion": 0.005,
+  "velocity_cosine_min": 0.5,
+  "stationary_speed": 0.012,
+  "owner_departure_distance": 0.2,
+  "contact_distance": 0.015,
+  "interaction_persistence_s": 1.2,
+  "occlusion_grace_s": 0.75,
+  "track_retention_s": 10.0,
+  "clear_duration_s": 1.0
+ },
+ "predictions": "D:\\watchdog-data\\tracks\\virat_yolo11m_1280_botsort",
+ "oracle": {
+  "gt_owned_items": 13,
+  "covered_items": 8,
+  "correct_items": 8,
+  "unjudged_bindings": 3,
+  "binding_coverage": 0.6154,
+  "owner_accuracy": 1.0,
+  "alerts": 0,
+  "hours": 0.9428,
+  "false_alerts_per_hour": 0.0
+ },
+ "end_to_end": {
+  "gt_owned_items": 13,
+  "covered_items": 3,
+  "correct_items": 3,
+  "unjudged_bindings": 6,
+  "binding_coverage": 0.2308,
+  "owner_accuracy": 1.0,
+  "alerts": 0,
+  "hours": 1.0301,
+  "false_alerts_per_hour": 0.0
+ },
+ "tracking": {
+  "person": {
+   "idf1": 0.415,
+   "idp": 0.5191,
+   "idr": 0.3458,
+   "mota": 0.2233,
+   "recall": 0.4462,
+   "precision": 0.6699,
+   "num_switches": 387,
+   "num_objects": 130757,
+   "num_unique_objects": 283
+  },
+  "item": {
+   "idf1": 0.035,
+   "idp": 0.1571,
+   "idr": 0.0197,
+   "mota": -0.0698,
+   "recall": 0.0288,
+   "precision": 0.2298,
+   "num_switches": 14,
+   "num_objects": 6705,
+   "num_unique_objects": 16
+  }
+ },
+ "per_clip": [
+  {
+   "clip_id": "VIRAT_S_000200_00_000100_000171",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0196,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0196,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4009,
+     "idp": 0.5122,
+     "idr": 0.3294,
+     "mota": 0.3237,
+     "recall": 0.4865,
+     "precision": 0.7566,
+     "num_switches": 10,
+     "num_objects": 1597,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000200_02_000479_000635",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0431,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0431,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.0159,
+     "idp": 0.0176,
+     "idr": 0.0145,
+     "mota": -0.789,
+     "recall": 0.0168,
+     "precision": 0.0205,
+     "num_switches": 1,
+     "num_objects": 2555,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000201_00_000018_000380",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.1003,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.1003,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.5215,
+     "idp": 0.5223,
+     "idr": 0.5207,
+     "mota": 0.4212,
+     "recall": 0.7102,
+     "precision": 0.7124,
+     "num_switches": 43,
+     "num_objects": 18505,
+     "num_unique_objects": 36
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": 0,
+     "mota": -0.0012,
+     "recall": 0,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 857,
+     "num_unique_objects": 2
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000201_01_000384_000589",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0569,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 1,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0569,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4432,
+     "idp": 0.4893,
+     "idr": 0.4051,
+     "mota": 0.2806,
+     "recall": 0.5559,
+     "precision": 0.6716,
+     "num_switches": 59,
+     "num_objects": 17283,
+     "num_unique_objects": 27
+    },
+    "item": {
+     "idf1": 0,
+     "idp": NaN,
+     "idr": 0,
+     "mota": 0,
+     "recall": 0,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 197,
+     "num_unique_objects": 1
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000201_02_000590_000623",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0091,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0091,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.3946,
+     "idp": 0.6908,
+     "idr": 0.2762,
+     "mota": 0.1715,
+     "recall": 0.2873,
+     "precision": 0.7187,
+     "num_switches": 3,
+     "num_objects": 898,
+     "num_unique_objects": 5
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000201_04_000682_000822",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0387,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0387,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.5504,
+     "idp": 0.6909,
+     "idr": 0.4574,
+     "mota": 0.2873,
+     "recall": 0.4752,
+     "precision": 0.7179,
+     "num_switches": 6,
+     "num_objects": 5370,
+     "num_unique_objects": 8
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000203_08_001702_001734",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0088,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0088,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.428,
+     "idp": 0.5394,
+     "idr": 0.3547,
+     "mota": 0.1967,
+     "recall": 0.4288,
+     "precision": 0.6521,
+     "num_switches": 4,
+     "num_objects": 1215,
+     "num_unique_objects": 6
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000205_01_000197_000342",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.04,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 2,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.04,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.3959,
+     "idp": 0.5163,
+     "idr": 0.321,
+     "mota": 0.1771,
+     "recall": 0.4006,
+     "precision": 0.6443,
+     "num_switches": 24,
+     "num_objects": 9944,
+     "num_unique_objects": 15
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000205_02_000409_000566",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0434,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 1,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0434,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4006,
+     "idp": 0.5483,
+     "idr": 0.3156,
+     "mota": 0.1928,
+     "recall": 0.387,
+     "precision": 0.6722,
+     "num_switches": 31,
+     "num_objects": 5633,
+     "num_unique_objects": 13
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000205_03_000860_000922",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0097,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.017,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.2912,
+     "idp": 0.5047,
+     "idr": 0.2046,
+     "mota": 0.1912,
+     "recall": 0.3002,
+     "precision": 0.7406,
+     "num_switches": 2,
+     "num_objects": 523,
+     "num_unique_objects": 1
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000205_05_001092_001124",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0061,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0089,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.5724,
+     "idp": 0.9849,
+     "idr": 0.4034,
+     "mota": 0.3972,
+     "recall": 0.4034,
+     "precision": 0.9849,
+     "num_switches": 0,
+     "num_objects": 647,
+     "num_unique_objects": 2
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000206_08_001618_001712",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.026,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 1,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.026,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.2499,
+     "idp": 0.2726,
+     "idr": 0.2308,
+     "mota": -0.2657,
+     "recall": 0.2916,
+     "precision": 0.3444,
+     "num_switches": 5,
+     "num_objects": 2236,
+     "num_unique_objects": 4
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000207_02_000498_000530",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0087,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0087,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.6239,
+     "idp": 0.9329,
+     "idr": 0.4687,
+     "mota": 0.4735,
+     "recall": 0.4912,
+     "precision": 0.9776,
+     "num_switches": 4,
+     "num_objects": 623,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_000207_03_000556_000590",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0092,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0094,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.8721,
+     "idp": 0.9464,
+     "idr": 0.8086,
+     "mota": 0.7978,
+     "recall": 0.8275,
+     "precision": 0.9685,
+     "num_switches": 1,
+     "num_objects": 371,
+     "num_unique_objects": 2
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040000_00_000000_000036",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0065,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.01,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0,
+     "idp": NaN,
+     "idr": 0,
+     "mota": 0,
+     "recall": 0,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 423,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040000_01_000042_000099",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0058,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0158,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0,
+     "idp": NaN,
+     "idr": 0,
+     "mota": 0,
+     "recall": 0,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 495,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040000_04_000532_000622",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0182,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0249,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.3219,
+     "idp": 0.5983,
+     "idr": 0.2202,
+     "mota": 0.3445,
+     "recall": 0.3578,
+     "precision": 0.9723,
+     "num_switches": 3,
+     "num_objects": 981,
+     "num_unique_objects": 1
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040000_08_001084_001190",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.02,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 1,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0293,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.279,
+     "idp": 0.5082,
+     "idr": 0.1923,
+     "mota": 0.2095,
+     "recall": 0.2946,
+     "precision": 0.7786,
+     "num_switches": 2,
+     "num_objects": 1456,
+     "num_unique_objects": 4
+    },
+    "item": {
+     "idf1": 0.0028,
+     "idp": 1,
+     "idr": 0.0014,
+     "mota": 0.0014,
+     "recall": 0.0014,
+     "precision": 1,
+     "num_switches": 0,
+     "num_objects": 704,
+     "num_unique_objects": 1
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040000_09_001194_001574",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0921,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.1028,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.2308,
+     "idp": 0.4815,
+     "idr": 0.1518,
+     "mota": 0.1681,
+     "recall": 0.2449,
+     "precision": 0.777,
+     "num_switches": 25,
+     "num_objects": 3855,
+     "num_unique_objects": 5
+    },
+    "item": {
+     "idf1": 0.1618,
+     "idp": 0.973,
+     "idr": 0.0882,
+     "mota": 0.0882,
+     "recall": 0.0907,
+     "precision": 1,
+     "num_switches": 1,
+     "num_objects": 408,
+     "num_unique_objects": 1
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040003_00_000000_000072",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0126,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.02,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.1069,
+     "idp": 0.1523,
+     "idr": 0.0824,
+     "mota": -0.0935,
+     "recall": 0.2249,
+     "precision": 0.4156,
+     "num_switches": 2,
+     "num_objects": 898,
+     "num_unique_objects": 3
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040003_01_000083_000193",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0287,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0304,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.5826,
+     "idp": 0.8339,
+     "idr": 0.4477,
+     "mota": 0.4452,
+     "recall": 0.4925,
+     "precision": 0.9172,
+     "num_switches": 10,
+     "num_objects": 3531,
+     "num_unique_objects": 6
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040003_02_000197_000552",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0986,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 1,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0986,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.358,
+     "idp": 0.5451,
+     "idr": 0.2665,
+     "mota": 0.2341,
+     "recall": 0.3629,
+     "precision": 0.7425,
+     "num_switches": 34,
+     "num_objects": 11514,
+     "num_unique_objects": 22
+    },
+    "item": {
+     "idf1": 0,
+     "idp": NaN,
+     "idr": 0,
+     "mota": 0,
+     "recall": 0,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 67,
+     "num_unique_objects": 1
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040005_06_000886_001016",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0257,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0361,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4712,
+     "idp": 0.8195,
+     "idr": 0.3306,
+     "mota": 0.3162,
+     "recall": 0.3613,
+     "precision": 0.8954,
+     "num_switches": 5,
+     "num_objects": 1730,
+     "num_unique_objects": 8
+    },
+    "item": {
+     "idf1": 0,
+     "idp": NaN,
+     "idr": 0,
+     "mota": 0,
+     "recall": 0,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 251,
+     "num_unique_objects": 2
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040005_08_001225_001276",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0021,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0141,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.306,
+     "idp": 0.4,
+     "idr": 0.2478,
+     "mota": -0.1239,
+     "recall": 0.2478,
+     "precision": 0.4,
+     "num_switches": 0,
+     "num_objects": 113,
+     "num_unique_objects": 1
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_00_000000_000120",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0334,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0333,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.34,
+     "idp": 0.6068,
+     "idr": 0.2362,
+     "mota": 0.2558,
+     "recall": 0.3245,
+     "precision": 0.8337,
+     "num_switches": 36,
+     "num_objects": 9035,
+     "num_unique_objects": 17
+    },
+    "item": {
+     "idf1": 0.0584,
+     "idp": 0.3043,
+     "idr": 0.0323,
+     "mota": 0.0192,
+     "recall": 0.0653,
+     "precision": 0.6159,
+     "num_switches": 7,
+     "num_objects": 1301,
+     "num_unique_objects": 1
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_01_000132_000195",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0174,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0174,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.1968,
+     "idp": 0.1876,
+     "idr": 0.2069,
+     "mota": -0.6767,
+     "recall": 0.2135,
+     "precision": 0.1935,
+     "num_switches": 1,
+     "num_objects": 2131,
+     "num_unique_objects": 5
+    },
+    "item": {
+     "idf1": 0.053,
+     "idp": 0.8085,
+     "idr": 0.0274,
+     "mota": 0.0303,
+     "recall": 0.0332,
+     "precision": 0.9787,
+     "num_switches": 3,
+     "num_objects": 1387,
+     "num_unique_objects": 2
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_02_000199_000279",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0222,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0222,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4731,
+     "idp": 0.5367,
+     "idr": 0.423,
+     "mota": 0.2043,
+     "recall": 0.4979,
+     "precision": 0.6316,
+     "num_switches": 9,
+     "num_objects": 2820,
+     "num_unique_objects": 4
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_03_000284_000425",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0391,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.0,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0391,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.3689,
+     "idp": 0.5454,
+     "idr": 0.2788,
+     "mota": 0.23,
+     "recall": 0.372,
+     "precision": 0.7278,
+     "num_switches": 22,
+     "num_objects": 7612,
+     "num_unique_objects": 12
+    },
+    "item": {
+     "idf1": 0.0185,
+     "idp": 0.1667,
+     "idr": 0.0098,
+     "mota": -0.0294,
+     "recall": 0.0157,
+     "precision": 0.2667,
+     "num_switches": 3,
+     "num_objects": 1533,
+     "num_unique_objects": 5
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_06_000836_000909",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0184,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0202,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.1822,
+     "idp": 0.5207,
+     "idr": 0.1104,
+     "mota": 0.0139,
+     "recall": 0.1137,
+     "precision": 0.5359,
+     "num_switches": 3,
+     "num_objects": 2164,
+     "num_unique_objects": 6
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040104_07_001268_001348",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0222,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 1,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0222,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.5091,
+     "idp": 0.7696,
+     "idr": 0.3804,
+     "mota": 0.3568,
+     "recall": 0.4283,
+     "precision": 0.8666,
+     "num_switches": 12,
+     "num_objects": 2169,
+     "num_unique_objects": 8
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_050000_06_000908_000970",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0137,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0172,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.2057,
+     "idp": 0.2389,
+     "idr": 0.1807,
+     "mota": -0.1933,
+     "recall": 0.2829,
+     "precision": 0.3741,
+     "num_switches": 2,
+     "num_objects": 714,
+     "num_unique_objects": 4
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_050000_08_001235_001295",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0166,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 1,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0166,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.3795,
+     "idp": 0.449,
+     "idr": 0.3286,
+     "mota": 0.0834,
+     "recall": 0.409,
+     "precision": 0.5588,
+     "num_switches": 12,
+     "num_objects": 4555,
+     "num_unique_objects": 18
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_050000_09_001310_001373",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0175,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0175,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.4943,
+     "idp": 0.5409,
+     "idr": 0.4551,
+     "mota": 0.2944,
+     "recall": 0.5693,
+     "precision": 0.6766,
+     "num_switches": 13,
+     "num_objects": 4799,
+     "num_unique_objects": 18
+    },
+    "item": {
+     "idf1": 0,
+     "idp": 0,
+     "idr": NaN,
+     "mota": -Infinity,
+     "recall": NaN,
+     "precision": 0,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_050000_11_001530_001576",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0127,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0,
+    "binding_coverage": null,
+    "owner_accuracy": null,
+    "alerts": 0,
+    "hours": 0.0127,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.6142,
+     "idp": 0.7213,
+     "idr": 0.5347,
+     "mota": 0.5326,
+     "recall": 0.6376,
+     "precision": 0.8601,
+     "num_switches": 3,
+     "num_objects": 2362,
+     "num_unique_objects": 7
+    },
+    "item": {
+     "idf1": NaN,
+     "idp": NaN,
+     "idr": NaN,
+     "mota": NaN,
+     "recall": NaN,
+     "precision": NaN,
+     "num_switches": 0,
+     "num_objects": 0,
+     "num_unique_objects": 0
+    }
+   }
+  }
+ ]
+}

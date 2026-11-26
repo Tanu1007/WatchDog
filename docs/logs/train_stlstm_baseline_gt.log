@@ -1,0 +1,57 @@
+windows: train 880, select 91 (8 clips), test 260
+epoch   1  loss own 0.763 inter 1.225  | select own AUROC 0.824 F1 0.772 inter macro-F1 0.402  *best
+epoch   2  loss own 0.531 inter 0.861  | select own AUROC 0.859 F1 0.829 inter macro-F1 0.367  *best
+epoch   3  loss own 0.261 inter 0.717  | select own AUROC 0.902 F1 0.865 inter macro-F1 0.422  *best
+epoch   4  loss own 0.224 inter 0.679  | select own AUROC 0.906 F1 0.857 inter macro-F1 0.395
+epoch   5  loss own 0.200 inter 0.614  | select own AUROC 0.902 F1 0.874 inter macro-F1 0.415
+epoch   6  loss own 0.197 inter 0.588  | select own AUROC 0.904 F1 0.865 inter macro-F1 0.398
+epoch   7  loss own 0.192 inter 0.561  | select own AUROC 0.906 F1 0.857 inter macro-F1 0.466  *best
+epoch   8  loss own 0.182 inter 0.541  | select own AUROC 0.911 F1 0.863 inter macro-F1 0.478  *best
+epoch   9  loss own 0.176 inter 0.535  | select own AUROC 0.885 F1 0.833 inter macro-F1 0.447
+epoch  10  loss own 0.183 inter 0.510  | select own AUROC 0.872 F1 0.796 inter macro-F1 0.467
+epoch  11  loss own 0.178 inter 0.510  | select own AUROC 0.882 F1 0.811 inter macro-F1 0.429
+epoch  12  loss own 0.203 inter 0.511  | select own AUROC 0.899 F1 0.852 inter macro-F1 0.505  *best
+epoch  13  loss own 0.175 inter 0.501  | select own AUROC 0.901 F1 0.835 inter macro-F1 0.589  *best
+epoch  14  loss own 0.164 inter 0.468  | select own AUROC 0.890 F1 0.857 inter macro-F1 0.545
+epoch  15  loss own 0.155 inter 0.443  | select own AUROC 0.896 F1 0.874 inter macro-F1 0.533
+epoch  16  loss own 0.155 inter 0.421  | select own AUROC 0.885 F1 0.854 inter macro-F1 0.527
+epoch  17  loss own 0.151 inter 0.418  | select own AUROC 0.910 F1 0.880 inter macro-F1 0.575
+epoch  18  loss own 0.145 inter 0.411  | select own AUROC 0.886 F1 0.865 inter macro-F1 0.503
+epoch  19  loss own 0.143 inter 0.390  | select own AUROC 0.882 F1 0.852 inter macro-F1 0.557
+epoch  20  loss own 0.139 inter 0.381  | select own AUROC 0.887 F1 0.865 inter macro-F1 0.504
+epoch  21  loss own 0.143 inter 0.377  | select own AUROC 0.857 F1 0.833 inter macro-F1 0.509
+epoch  22  loss own 0.140 inter 0.374  | select own AUROC 0.901 F1 0.854 inter macro-F1 0.549
+epoch  23  loss own 0.133 inter 0.355  | select own AUROC 0.862 F1 0.849 inter macro-F1 0.509
+epoch  24  loss own 0.128 inter 0.340  | select own AUROC 0.873 F1 0.838 inter macro-F1 0.527
+epoch  25  loss own 0.130 inter 0.342  | select own AUROC 0.857 F1 0.830 inter macro-F1 0.510
+epoch  26  loss own 0.124 inter 0.322  | select own AUROC 0.812 F1 0.808 inter macro-F1 0.534
+epoch  27  loss own 0.125 inter 0.330  | select own AUROC 0.842 F1 0.811 inter macro-F1 0.536
+epoch  28  loss own 0.129 inter 0.315  | select own AUROC 0.825 F1 0.811 inter macro-F1 0.540
+early stop: no improvement for 15 epochs
+{
+ "best_epoch": 13,
+ "test_ownership": {
+  "auroc": 0.9731571511676224,
+  "f1": 0.8863636363636364,
+  "precision": 0.968944099378882,
+  "recall": 0.8167539267015707,
+  "count": 254
+ },
+ "gap_rule_ownership": {
+  "auroc": 0.9475608742624448,
+  "f1": 0.9468085106382979,
+  "precision": 0.9621621621621622,
+  "recall": 0.9319371727748691
+ },
+ "test_interaction": {
+  "macro_f1": 0.43233241294677094,
+  "accuracy": 0.6346153846153846,
+  "per_class_f1": {
+   "none": 0.707,
+   "carry": 0.689,
+   "load_unload": 0.333,
+   "handle": 0.0
+  }
+ },
+ "majority_interaction_macro_f1": 0.1327683615819209
+}

@@ -1,0 +1,53 @@
+VIRAT_S_040103_01_000132_000195: oracle 1/2 bound, 1 correct | e2e 1/2 bound, 1 correct, 0 alerts | IDF1 person 0.2484 item 0.0139
+VIRAT_S_040103_03_000284_000425: oracle 2/2 bound, 2 correct | e2e 1/2 bound, 1 correct, 0 alerts | IDF1 person 0.3576 item 0.1187
+{
+  "split": null,
+  "clips": 2,
+  "predictions": "D:\\watchdog-data\\tracks\\pilot3_yolov8l-worldv2_c0.25",
+  "oracle": {
+    "gt_owned_items": 4,
+    "covered_items": 3,
+    "correct_items": 3,
+    "unjudged_bindings": 3,
+    "binding_coverage": 0.75,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0565,
+    "false_alerts_per_hour": 0.0
+  },
+  "end_to_end": {
+    "gt_owned_items": 4,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 2,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0565,
+    "false_alerts_per_hour": 0.0
+  },
+  "tracking": {
+    "person": {
+      "idf1": 0.3341,
+      "idp": 0.4469,
+      "idr": 0.2668,
+      "mota": 0.1207,
+      "recall": 0.3608,
+      "precision": 0.6045,
+      "num_switches": 39,
+      "num_objects": 9743,
+      "num_unique_objects": 17
+    },
+    "item": {
+      "idf1": 0.0754,
+      "idp": 0.2276,
+      "idr": 0.0452,
+      "mota": -0.0524,
+      "recall": 0.074,
+      "precision": 0.3724,
+      "num_switches": 5,
+      "num_objects": 2920,
+      "num_unique_objects": 7
+    }
+  }
+}

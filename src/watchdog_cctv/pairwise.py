@@ -1,7 +1,10 @@
 """Pairwise person-item features, rolling windows and labels for the ST-LSTM.
 
-Every frame of a person-item pair gets a 12-D feature vector (FEATURE_NAMES)
-and 3 mask flags (MASK_NAMES). Distances are image-space: normalized box
+Every frame of a person-item pair gets a 14-D feature vector (FEATURE_NAMES:
+the 12 agreed features plus 2 pair-history features) and 3 mask flags
+(MASK_NAMES). Every feature is causal (uses only the current and earlier
+frames), so features computed over a whole clip equal those a live system
+would compute frame by frame. Distances are image-space: normalized box
 coordinates divided by the person's box height, so they are roughly scale-free
 across camera depth; speeds are person heights per second. Features are zero
 where an input is unavailable and the masks say why. wrist_distance is a
@@ -34,6 +37,8 @@ FEATURE_NAMES = (
     "item_displacement",
     "wrist_distance",
     "copresence_seconds",
+    "comotion_seconds",
+    "since_comotion",
 )
 MASK_NAMES = ("person_visible", "item_visible", "pose_available")
 INTERACTION_CLASSES = ("none", "carry", "load_unload", "handle")
@@ -59,7 +64,14 @@ FEATURE_CLIP = 10.0  # bound on height-normalized values
 MAX_VELOCITY_GAP_S = 0.5  # longest gap between samples used for a velocity
 MIN_SPEED = 0.05  # person heights per second; slower is "not moving" for cosine
 COPRESENCE_CAP_S = 10.0
+# A frame is co-motion when both move (MIN_SPEED), in a similar direction and close.
+COMOTION_COSINE = 0.7
+COMOTION_GAP = 0.5  # person heights
+COMOTION_CAP_S = 10.0
+SINCE_COMOTION_CAP_S = 30.0
 CANDIDATE_GAP = 0.1  # pairs are kept if their box gap ever falls below this
+# Pair memory: these keep their value while a box is briefly missing.
+HISTORY_FEATURES = ("comotion_seconds", "since_comotion")
 
 
 def track_arrays(frames):
@@ -120,6 +132,7 @@ def pair_features(times, person, item):
     features = np.zeros((count, len(FEATURE_NAMES)), dtype=np.float64)
     masks = np.stack([person_visible, item_visible, np.zeros(count, dtype=bool)], axis=1)
     if not both.any():
+        features[:, FEATURE_NAMES.index("since_comotion")] = 1.0
         return features.astype(np.float32), masks.astype(np.uint8)
 
     p = np.nan_to_num(person)
@@ -157,8 +170,22 @@ def pair_features(times, person, item):
     )
     # Pair features need both boxes; the two speeds only need their own track.
     for name in FEATURE_NAMES:
-        if name not in ("person_speed", "item_speed"):
+        if name not in ("person_speed", "item_speed", *HISTORY_FEATURES):
             features[~both, column[name]] = 0
+    # History: co-motion seen so far in the clip, so ownership evidence persists
+    # after the pair stops moving together. Both use only past frames.
+    comoving = (
+        moving
+        & (features[:, column["velocity_cosine"]] >= COMOTION_COSINE)
+        & (features[:, column["box_gap"]] <= COMOTION_GAP)
+    )
+    step = np.diff(times, prepend=times[0])
+    features[:, column["comotion_seconds"]] = (
+        np.minimum(np.cumsum(step * comoving), COMOTION_CAP_S) / COMOTION_CAP_S
+    )
+    last = np.maximum.accumulate(np.where(comoving, np.arange(count), -1))
+    since = np.where(last >= 0, times - times[np.maximum(last, 0)], SINCE_COMOTION_CAP_S)
+    features[:, column["since_comotion"]] = np.minimum(since, SINCE_COMOTION_CAP_S) / SINCE_COMOTION_CAP_S
     np.clip(features, -FEATURE_CLIP, FEATURE_CLIP, out=features)
     return features.astype(np.float32), masks.astype(np.uint8)
 

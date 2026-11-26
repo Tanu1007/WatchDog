@@ -1,0 +1,24 @@
+
+== gt: 260 windows, 5 runs
+metric                       ST-LSTM mean ± std   gap rule
+ownership_auroc                   0.996 ± 0.001      0.948
+ownership_f1                      0.936 ± 0.032      0.947
+ownership_precision               1.000 ± 0.000      0.962
+ownership_recall                  0.882 ± 0.056      0.932
+interaction_macro_f1              0.502 ± 0.065           
+interaction_none_f1               0.732 ± 0.019           
+interaction_carry_f1              0.688 ± 0.009           
+interaction_load_unload_f1          0.235 ± 0.125           
+interaction_handle_f1             0.355 ± 0.151           
+
+== ft: 183 windows, 5 runs
+metric                       ST-LSTM mean ± std   gap rule
+ownership_auroc                   0.995 ± 0.003      0.956
+ownership_f1                      0.984 ± 0.012      0.923
+ownership_precision               0.980 ± 0.013      0.935
+ownership_recall                  0.987 ± 0.011      0.911
+interaction_macro_f1              0.578 ± 0.084           
+interaction_none_f1               0.863 ± 0.030           
+interaction_carry_f1              0.836 ± 0.029           
+interaction_load_unload_f1          0.000 ± 0.000           
+interaction_handle_f1             0.613 ± 0.320           

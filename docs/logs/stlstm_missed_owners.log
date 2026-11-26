@@ -1,0 +1,6 @@
+missed owners 41 of 191
+missed     n= 41 gap=0.0000(median) gap<=0.0056: 0.71  iou=0.084 cos=0.011 pspeed=0.007 ispeed=0.006
+found      n=150 gap=0.0000(median) gap<=0.0056: 0.99  iou=0.221 cos=0.367 pspeed=0.171 ispeed=0.161
+non-owner  n= 63 gap=1.4009(median) gap<=0.0056: 0.11  iou=0.010 cos=-0.033 pspeed=0.153 ispeed=0.111
+[('VIRAT_S_040103_01_000132_000195', 28), ('VIRAT_S_000201_00_000018_000380', 12), ('VIRAT_S_040005_06_000886_001016', 1)]
+model mean/std for box_gap: 1.6907200813293457 2.7200841903686523

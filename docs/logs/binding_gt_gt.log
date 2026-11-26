@@ -1,0 +1,61 @@
+VIRAT_S_000201_00_000018_000380: rules 0/2 (+0) gt_seed0 1/2 (+0) gt_seed1 1/2 (+0) gt_seed2 1/2 (+0) gt_seed3 1/2 (+0) gt_seed4 1/2 (+0)
+VIRAT_S_000201_01_000384_000589: rules 1/1 (+0) gt_seed0 1/1 (+0) gt_seed1 1/1 (+0) gt_seed2 1/1 (+0) gt_seed3 1/1 (+0) gt_seed4 1/1 (+0)
+VIRAT_S_040000_08_001084_001190: rules 1/1 (+0) gt_seed0 1/1 (+0) gt_seed1 1/1 (+0) gt_seed2 1/1 (+0) gt_seed3 1/1 (+0) gt_seed4 1/1 (+0)
+VIRAT_S_040000_09_001194_001574: rules 1/1 (+0) gt_seed0 1/1 (+0) gt_seed1 1/1 (+0) gt_seed2 1/1 (+0) gt_seed3 1/1 (+0) gt_seed4 1/1 (+0)
+VIRAT_S_040003_02_000197_000552: rules 1/1 (+0) gt_seed0 1/1 (+0) gt_seed1 1/1 (+0) gt_seed2 1/1 (+0) gt_seed3 1/1 (+0) gt_seed4 1/1 (+0)
+VIRAT_S_040005_06_000886_001016: rules 0/2 (+0) gt_seed0 2/2 (+0) gt_seed1 2/2 (+0) gt_seed2 2/2 (+0) gt_seed3 2/2 (+0) gt_seed4 2/2 (+0)
+VIRAT_S_040103_00_000000_000120: rules 1/1 (+0) gt_seed0 1/1 (+0) gt_seed1 1/1 (+0) gt_seed2 1/1 (+0) gt_seed3 1/1 (+0) gt_seed4 1/1 (+0)
+VIRAT_S_040103_01_000132_000195: rules 1/2 (+0) gt_seed0 2/2 (+0) gt_seed1 2/2 (+0) gt_seed2 2/2 (+0) gt_seed3 2/2 (+0) gt_seed4 2/2 (+0)
+VIRAT_S_040103_03_000284_000425: rules 2/2 (+3) gt_seed0 2/2 (+2) gt_seed1 2/2 (+3) gt_seed2 2/2 (+3) gt_seed3 2/2 (+3) gt_seed4 2/2 (+3)
+{
+ "rules": {
+  "gt_owned_items": 13,
+  "covered_items": 8,
+  "correct_items": 8,
+  "unjudged_bindings": 3
+ },
+ "st_lstm_mean": {
+  "gt_owned_items": 13.0,
+  "covered_items": 12.0,
+  "correct_items": 12.0,
+  "unjudged_bindings": 2.8
+ },
+ "st_lstm_std": {
+  "gt_owned_items": 0.0,
+  "covered_items": 0.0,
+  "correct_items": 0.0,
+  "unjudged_bindings": 0.4
+ },
+ "st_lstm_runs": {
+  "gt_seed0": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 2
+  },
+  "gt_seed1": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "gt_seed2": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "gt_seed3": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "gt_seed4": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  }
+ }
+}

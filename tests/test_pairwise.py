@@ -27,7 +27,7 @@ class PairFeatureTests(unittest.TestCase):
     def test_carried_item_moves_with_person(self):
         times, tracks = pairwise.track_arrays(carry_frames())
         features, masks = pairwise.pair_features(times, tracks[1][1], tracks[2][1])
-        self.assertEqual(features.shape, (90, 12))
+        self.assertEqual(features.shape, (90, 14))
         self.assertEqual(masks.shape, (90, 3))
         later = features[1:]
         # Height 0.2: the bag's center sits 0.035 right and 0.025 below the person's,
@@ -59,6 +59,36 @@ class PairFeatureTests(unittest.TestCase):
         self.assertAlmostEqual(float(features[12, COLUMN["velocity_cosine"]]), 1.0, places=4)
 
 
+    def test_comotion_history_persists_after_the_pair_stops(self):
+        # Walk with the bag for 30 frames, then stand still beside it for 60.
+        frames = carry_frames(count=30)
+        x = 0.1 + 0.005 * 29
+        for index in range(30, 90):
+            frames.append(Frame(index / FPS, (
+                Observation(1, "person", (x, 0.4, x + 0.05, 0.6)),
+                Observation(2, "item", (x + 0.05, 0.5, x + 0.07, 0.55)),
+            )))
+        times, tracks = pairwise.track_arrays(frames)
+        features, _ = pairwise.pair_features(times, tracks[1][1], tracks[2][1])
+        comotion = features[:, COLUMN["comotion_seconds"]]
+        since = features[:, COLUMN["since_comotion"]]
+        # Frames 1..29 co-move: 29/15 s of co-motion, kept while standing still.
+        self.assertAlmostEqual(float(comotion[29]), 29 / FPS / 10, places=5)
+        self.assertAlmostEqual(float(comotion[-1]), float(comotion[29]), places=6)
+        self.assertEqual(float(since[0]), 1.0)  # no co-motion yet: capped
+        self.assertEqual(float(since[29]), 0.0)
+        self.assertAlmostEqual(float(since[-1]), (89 - 29) / FPS / 30, places=5)
+        self.assertEqual(float(features[-1, COLUMN["velocity_cosine"]]), 0.0)
+
+    def test_features_are_causal(self):
+        frames = carry_frames(count=90, item_missing={40, 41})
+        times, tracks = pairwise.track_arrays(frames)
+        full, _ = pairwise.pair_features(times, tracks[1][1], tracks[2][1])
+        times, tracks = pairwise.track_arrays(frames[:50])
+        prefix, _ = pairwise.pair_features(times, tracks[1][1], tracks[2][1])
+        np.testing.assert_array_equal(full[:50], prefix)
+
+
 class WindowTests(unittest.TestCase):
     def test_windows_labels_and_candidates(self):
         frames = carry_frames(count=150, stranger=True)
@@ -74,7 +104,7 @@ class WindowTests(unittest.TestCase):
         self.assertEqual({(m["person"], m["item"]) for m in meta}, {(1, 2)})
         # 150 frames, window 60, hop 30: starts 0, 30, 60, 90.
         self.assertEqual([m["start_timestamp"] for m in meta], [0.0, 2.0, 4.0, 6.0])
-        self.assertEqual(features.shape, (4, 60, 12))
+        self.assertEqual(features.shape, (4, 60, 14))
         self.assertEqual(masks.shape, (4, 60, 3))
         self.assertEqual(ownership.tolist(), [1, 1, 1, 1])
         carry = pairwise.INTERACTION_CLASSES.index("carry")
@@ -92,7 +122,7 @@ class WindowTests(unittest.TestCase):
 
     def test_short_clip_gives_no_windows(self):
         features, _, ownership, _, meta = pairwise.build_windows(carry_frames(count=30), {2: {1}}, [])
-        self.assertEqual(features.shape, (0, 60, 12))
+        self.assertEqual(features.shape, (0, 60, 14))
         self.assertEqual(len(ownership), 0)
         self.assertEqual(meta, [])
 

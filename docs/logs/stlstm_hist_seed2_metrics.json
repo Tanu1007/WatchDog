@@ -1,0 +1,243 @@
+{
+ "best_epoch": 8,
+ "epochs_run": 23,
+ "train_seconds": 12.7,
+ "ownership_threshold": 0.5098143219947815,
+ "windows": {
+  "train": 880,
+  "select": 91,
+  "test": 260
+ },
+ "select": {
+  "ownership": {
+   "auroc": 0.9117647058823529,
+   "accuracy": 0.8271604938271605,
+   "precision": 0.7894736842105263,
+   "recall": 0.9574468085106383,
+   "f1": 0.8653846153846154,
+   "count": 81,
+   "positives": 47
+  },
+  "interaction": {
+   "accuracy": 0.7912087912087912,
+   "macro_f1": 0.5652878014434078,
+   "per_class": {
+    "none": {
+     "precision": 0.9318181818181818,
+     "recall": 0.803921568627451,
+     "f1": 0.8631578947368421,
+     "support": 51
+    },
+    "carry": {
+     "precision": 0.675,
+     "recall": 0.9310344827586207,
+     "f1": 0.782608695652174,
+     "support": 29
+    },
+    "load_unload": {
+     "precision": 0.8,
+     "recall": 0.5,
+     "f1": 0.6153846153846154,
+     "support": 8
+    },
+    "handle": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3
+    }
+   },
+   "confusion": [
+    [
+     41,
+     7,
+     1,
+     2
+    ],
+    [
+     2,
+     27,
+     0,
+     0
+    ],
+    [
+     1,
+     3,
+     4,
+     0
+    ],
+    [
+     0,
+     3,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "test": {
+  "ownership": {
+   "auroc": 0.9968420177844262,
+   "accuracy": 0.9015748031496063,
+   "precision": 1.0,
+   "recall": 0.8691099476439791,
+   "f1": 0.9299719887955182,
+   "count": 254,
+   "positives": 191
+  },
+  "interaction": {
+   "accuracy": 0.6615384615384615,
+   "macro_f1": 0.49178454335869415,
+   "per_class": {
+    "none": {
+     "precision": 0.6357142857142857,
+     "recall": 0.9468085106382979,
+     "f1": 0.7606837606837606,
+     "support": 94
+    },
+    "carry": {
+     "precision": 0.8390804597701149,
+     "recall": 0.5793650793650794,
+     "f1": 0.6854460093896714,
+     "support": 126
+    },
+    "load_unload": {
+     "precision": 0.5,
+     "recall": 0.15384615384615385,
+     "f1": 0.23529411764705882,
+     "support": 13
+    },
+    "handle": {
+     "precision": 0.27586206896551724,
+     "recall": 0.2962962962962963,
+     "f1": 0.2857142857142857,
+     "support": 27
+    }
+   },
+   "confusion": [
+    [
+     89,
+     1,
+     0,
+     4
+    ],
+    [
+     35,
+     73,
+     1,
+     17
+    ],
+    [
+     3,
+     8,
+     2,
+     0
+    ],
+    [
+     13,
+     5,
+     1,
+     8
+    ]
+   ]
+  }
+ },
+ "test_threshold_0.5": {
+  "auroc": 0.9968420177844262,
+  "accuracy": 0.9015748031496063,
+  "precision": 1.0,
+  "recall": 0.8691099476439791,
+  "f1": 0.9299719887955182,
+  "count": 254,
+  "positives": 191
+ },
+ "baselines_test": {
+  "ownership_gap_rule": {
+   "auroc": 0.9475608742624448,
+   "accuracy": 0.9212598425196851,
+   "precision": 0.9621621621621622,
+   "recall": 0.9319371727748691,
+   "f1": 0.9468085106382979,
+   "count": 254,
+   "positives": 191,
+   "threshold": 0.005556817352771759
+  },
+  "interaction_majority": {
+   "accuracy": 0.36153846153846153,
+   "macro_f1": 0.1327683615819209,
+   "per_class": {
+    "none": {
+     "precision": 0.36153846153846153,
+     "recall": 1.0,
+     "f1": 0.5310734463276836,
+     "support": 94
+    },
+    "carry": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 126
+    },
+    "load_unload": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 13
+    },
+    "handle": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 27
+    }
+   },
+   "confusion": [
+    [
+     94,
+     0,
+     0,
+     0
+    ],
+    [
+     126,
+     0,
+     0,
+     0
+    ],
+    [
+     13,
+     0,
+     0,
+     0
+    ],
+    [
+     27,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "args": {
+  "train": "D:\\watchdog-data\\windows\\virat_gt_train_v2",
+  "test": "D:\\watchdog-data\\windows\\virat_gt_validation_v2",
+  "select_from": "D:\\watchdog-data\\yolo\\virat_person_item\\summary.json",
+  "select_every": 5,
+  "output": "D:\\watchdog-data\\runs\\stlstm\\hist_seed2",
+  "epochs": 80,
+  "patience": 15,
+  "batch": 64,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "embed": 64,
+  "hidden": 64,
+  "layers": 1,
+  "dropout": 0.2,
+  "unidirectional": false,
+  "interaction_weight": 1.0,
+  "device": "cpu",
+  "threads": 4,
+  "seed": 2
+ }
+}

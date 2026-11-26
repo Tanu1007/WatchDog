@@ -64,17 +64,8 @@ def gap_rule(train, evaluate):
     return {**metrics, "threshold": float(threshold)}
 
 
-def predict(model, arrays, device, batch=256):
-    model.eval()
-    ownership, interaction = [np.zeros(0)], [np.zeros((0, len(INTERACTION_CLASSES)))]
-    with torch.no_grad():
-        for start in range(0, len(arrays["ownership"]), batch):
-            features = torch.as_tensor(arrays["features"][start : start + batch], device=device)
-            masks = torch.as_tensor(arrays["masks"][start : start + batch], device=device)
-            own, inter = model(features, masks)
-            ownership.append(torch.sigmoid(own).cpu().numpy())
-            interaction.append(torch.softmax(inter, -1).cpu().numpy())
-    return np.concatenate(ownership), np.concatenate(interaction)
+def predict(model, arrays, device=None):
+    return stlstm.predict(model, arrays["features"], arrays["masks"])
 
 
 def score(arrays, ownership, interaction, threshold=0.5):

@@ -1,0 +1,4 @@
+virat: 119 clips {'train': 64, 'validation': 55}, 79 with video
+ucf_crime: 1900 clips {'test': 290, 'train': 1610}, 1900 with video
+ucf_crime temporal labels: 290, 140 with anomaly windows
+verify: 0 problems

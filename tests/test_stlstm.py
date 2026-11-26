@@ -62,6 +62,24 @@ class ModelTests(unittest.TestCase):
         torch.testing.assert_close(loaded(x, m)[0], model(x, m)[0])
 
 
+class BindingTests(unittest.TestCase):
+    def test_best_score_so_far_binds_and_keeps_owner(self):
+        scores = [
+            (1.0, 5, 9, 0.2),  # (time, person, item, score)
+            (1.0, 6, 9, 0.3),
+            (2.0, 5, 9, 0.9),  # person 5 crosses the threshold first
+            (2.0, 6, 9, 0.4),
+            (3.0, 5, 9, 0.1),  # later low scores do not unbind
+            (3.0, 6, 9, 0.95),
+            (2.0, 7, 4, 0.6),  # second item, never above 0.7
+        ]
+        self.assertEqual(stlstm.bind_owners(sorted(scores), 0.7), {(9, 5): 1.0})
+
+    def test_highest_eligible_person_wins_a_tie_in_time(self):
+        scores = [(1.0, 5, 9, 0.8), (1.0, 6, 9, 0.9)]
+        self.assertEqual(stlstm.bind_owners(scores, 0.7), {(9, 6): 0.0})
+
+
 class MetricTests(unittest.TestCase):
     def test_binary_metrics(self):
         metrics = stlstm.binary_metrics([1, 1, 0, 0], [0.9, 0.4, 0.6, 0.1])

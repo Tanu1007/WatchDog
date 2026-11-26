@@ -1,0 +1,167 @@
+{
+ "split": null,
+ "clips": 2,
+ "rules": {
+  "bind_duration_s": 0.4,
+  "bind_distance": 0.04,
+  "ambiguity_margin": 0.02,
+  "minimum_motion": 0.005,
+  "velocity_cosine_min": 0.5,
+  "stationary_speed": 0.012,
+  "owner_departure_distance": 0.2,
+  "contact_distance": 0.015,
+  "interaction_persistence_s": 1.2,
+  "occlusion_grace_s": 0.75,
+  "track_retention_s": 10.0,
+  "clear_duration_s": 1.0
+ },
+ "predictions": "D:\\watchdog-data\\tracks\\pilot3_yolov8l-worldv2_c0.1",
+ "oracle": {
+  "gt_owned_items": 4,
+  "covered_items": 3,
+  "correct_items": 3,
+  "unjudged_bindings": 3,
+  "binding_coverage": 0.75,
+  "owner_accuracy": 1.0,
+  "alerts": 0,
+  "hours": 0.0565,
+  "false_alerts_per_hour": 0.0
+ },
+ "end_to_end": {
+  "gt_owned_items": 4,
+  "covered_items": 2,
+  "correct_items": 2,
+  "unjudged_bindings": 3,
+  "binding_coverage": 0.5,
+  "owner_accuracy": 1.0,
+  "alerts": 0,
+  "hours": 0.0565,
+  "false_alerts_per_hour": 0.0
+ },
+ "tracking": {
+  "person": {
+   "idf1": 0.3319,
+   "idp": 0.4121,
+   "idr": 0.2778,
+   "mota": 0.0695,
+   "recall": 0.3738,
+   "precision": 0.5545,
+   "num_switches": 39,
+   "num_objects": 9743,
+   "num_unique_objects": 17
+  },
+  "item": {
+   "idf1": 0.0882,
+   "idp": 0.1924,
+   "idr": 0.0572,
+   "mota": -0.1027,
+   "recall": 0.0986,
+   "precision": 0.3318,
+   "num_switches": 8,
+   "num_objects": 2920,
+   "num_unique_objects": 7
+  }
+ },
+ "per_clip": [
+  {
+   "clip_id": "VIRAT_S_040103_01_000132_000195",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0174,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 1,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0174,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.2237,
+     "idp": 0.2611,
+     "idr": 0.1957,
+     "mota": -0.3449,
+     "recall": 0.2027,
+     "precision": 0.2705,
+     "num_switches": 2,
+     "num_objects": 2131,
+     "num_unique_objects": 5
+    },
+    "item": {
+     "idf1": 0.023,
+     "idp": 0.1889,
+     "idr": 0.0123,
+     "mota": -0.0231,
+     "recall": 0.0216,
+     "precision": 0.3333,
+     "num_switches": 2,
+     "num_objects": 1387,
+     "num_unique_objects": 2
+    }
+   }
+  },
+  {
+   "clip_id": "VIRAT_S_040103_03_000284_000425",
+   "split": "validation",
+   "oracle": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3,
+    "binding_coverage": 1.0,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0391,
+    "false_alerts_per_hour": 0.0
+   },
+   "end_to_end": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 2,
+    "binding_coverage": 0.5,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.0391,
+    "false_alerts_per_hour": 0.0
+   },
+   "tracking": {
+    "person": {
+     "idf1": 0.364,
+     "idp": 0.4607,
+     "idr": 0.3008,
+     "mota": 0.1855,
+     "recall": 0.4217,
+     "precision": 0.6457,
+     "num_switches": 37,
+     "num_objects": 7612,
+     "num_unique_objects": 12
+    },
+    "item": {
+     "idf1": 0.1298,
+     "idp": 0.1928,
+     "idr": 0.0978,
+     "mota": -0.1748,
+     "recall": 0.1683,
+     "precision": 0.3316,
+     "num_switches": 6,
+     "num_objects": 1533,
+     "num_unique_objects": 5
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,243 @@
+{
+ "best_epoch": 10,
+ "epochs_run": 25,
+ "train_seconds": 17.7,
+ "ownership_threshold": 0.6718933582305908,
+ "windows": {
+  "train": 880,
+  "select": 91,
+  "test": 260
+ },
+ "select": {
+  "ownership": {
+   "auroc": 0.8854818523153942,
+   "accuracy": 0.8395061728395061,
+   "precision": 0.8269230769230769,
+   "recall": 0.9148936170212766,
+   "f1": 0.8686868686868687,
+   "count": 81,
+   "positives": 47
+  },
+  "interaction": {
+   "accuracy": 0.8021978021978022,
+   "macro_f1": 0.5400399290150844,
+   "per_class": {
+    "none": {
+     "precision": 0.9148936170212766,
+     "recall": 0.8431372549019608,
+     "f1": 0.8775510204081632,
+     "support": 51
+    },
+    "carry": {
+     "precision": 0.675,
+     "recall": 0.9310344827586207,
+     "f1": 0.782608695652174,
+     "support": 29
+    },
+    "load_unload": {
+     "precision": 0.75,
+     "recall": 0.375,
+     "f1": 0.5,
+     "support": 8
+    },
+    "handle": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3
+    }
+   },
+   "confusion": [
+    [
+     43,
+     7,
+     1,
+     0
+    ],
+    [
+     2,
+     27,
+     0,
+     0
+    ],
+    [
+     2,
+     3,
+     3,
+     0
+    ],
+    [
+     0,
+     3,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "test": {
+  "ownership": {
+   "auroc": 0.9803041635502368,
+   "accuracy": 0.8346456692913385,
+   "precision": 0.9806451612903225,
+   "recall": 0.7958115183246073,
+   "f1": 0.8786127167630058,
+   "count": 254,
+   "positives": 191
+  },
+  "interaction": {
+   "accuracy": 0.6307692307692307,
+   "macro_f1": 0.42283549783549784,
+   "per_class": {
+    "none": {
+     "precision": 0.5294117647058824,
+     "recall": 0.9574468085106383,
+     "f1": 0.6818181818181818,
+     "support": 94
+    },
+    "carry": {
+     "precision": 0.8452380952380952,
+     "recall": 0.5634920634920635,
+     "f1": 0.6761904761904762,
+     "support": 126
+    },
+    "load_unload": {
+     "precision": 0.6,
+     "recall": 0.23076923076923078,
+     "f1": 0.3333333333333333,
+     "support": 13
+    },
+    "handle": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 27
+    }
+   },
+   "confusion": [
+    [
+     90,
+     3,
+     1,
+     0
+    ],
+    [
+     53,
+     71,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     3,
+     0
+    ],
+    [
+     22,
+     5,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "test_threshold_0.5": {
+  "auroc": 0.9803041635502368,
+  "accuracy": 0.9291338582677166,
+  "precision": 0.9726775956284153,
+  "recall": 0.9319371727748691,
+  "f1": 0.9518716577540107,
+  "count": 254,
+  "positives": 191
+ },
+ "baselines_test": {
+  "ownership_gap_rule": {
+   "auroc": 0.9475608742624448,
+   "accuracy": 0.9212598425196851,
+   "precision": 0.9621621621621622,
+   "recall": 0.9319371727748691,
+   "f1": 0.9468085106382979,
+   "count": 254,
+   "positives": 191,
+   "threshold": 0.005556817352771759
+  },
+  "interaction_majority": {
+   "accuracy": 0.36153846153846153,
+   "macro_f1": 0.1327683615819209,
+   "per_class": {
+    "none": {
+     "precision": 0.36153846153846153,
+     "recall": 1.0,
+     "f1": 0.5310734463276836,
+     "support": 94
+    },
+    "carry": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 126
+    },
+    "load_unload": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 13
+    },
+    "handle": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 27
+    }
+   },
+   "confusion": [
+    [
+     94,
+     0,
+     0,
+     0
+    ],
+    [
+     126,
+     0,
+     0,
+     0
+    ],
+    [
+     13,
+     0,
+     0,
+     0
+    ],
+    [
+     27,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "args": {
+  "train": "D:\\watchdog-data\\windows\\virat_gt_train",
+  "test": "D:\\watchdog-data\\windows\\virat_gt_validation",
+  "select_from": "D:\\watchdog-data\\yolo\\virat_person_item\\summary.json",
+  "select_every": 5,
+  "output": "D:\\watchdog-data\\runs\\stlstm\\gt_seed3",
+  "epochs": 80,
+  "patience": 15,
+  "batch": 64,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "embed": 64,
+  "hidden": 64,
+  "layers": 1,
+  "dropout": 0.2,
+  "unidirectional": false,
+  "interaction_weight": 1.0,
+  "device": "cpu",
+  "threads": 4,
+  "seed": 3
+ }
+}

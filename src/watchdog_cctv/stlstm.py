@@ -12,6 +12,8 @@ the score time, as the project context specifies. Requires PyTorch and
 scikit-learn (the `stlstm` extra).
 """
 
+from itertools import groupby
+
 import numpy as np
 import torch
 from sklearn.metrics import (
@@ -23,7 +25,7 @@ from sklearn.metrics import (
 )
 from torch import nn
 
-from .pairwise import FEATURE_NAMES, INTERACTION_CLASSES, MASK_NAMES
+from .pairwise import FEATURE_NAMES, INTERACTION_CLASSES, MASK_NAMES, build_windows
 
 
 class PairwiseSTLSTM(nn.Module):
@@ -70,6 +72,59 @@ class PairwiseSTLSTM(nn.Module):
             summary = hidden[-1]
         summary = self.dropout(summary)
         return self.ownership(summary).squeeze(-1), self.interaction(summary)
+
+
+def predict(model, features, masks, batch=256):
+    """Ownership probabilities (N,) and interaction probabilities (N, classes)."""
+    model.eval()
+    device = model.mean.device
+    # New features are appended to the schema, so older models read a prefix.
+    features = features[..., : model.config["features"]]
+    ownership = [np.zeros(0, dtype=np.float32)]
+    interaction = [np.zeros((0, model.config["classes"]), dtype=np.float32)]
+    with torch.no_grad():
+        for start in range(0, len(features), batch):
+            own, inter = model(
+                torch.as_tensor(features[start : start + batch], device=device),
+                torch.as_tensor(masks[start : start + batch], device=device),
+            )
+            ownership.append(torch.sigmoid(own).cpu().numpy())
+            interaction.append(torch.softmax(inter, -1).cpu().numpy())
+    return np.concatenate(ownership), np.concatenate(interaction)
+
+
+def pair_scores(model, frames, hop=15):
+    """[(end_timestamp, person, item, ownership probability)] for every candidate
+    pair, on windows ending every `hop` frames, in time order."""
+    features, masks, _, _, meta = build_windows(frames, {}, [], hop=hop)
+    ownership, _ = predict(model, features, masks)
+    return sorted(
+        (m["end_timestamp"], m["person"], m["item"], float(score)) for m, score in zip(meta, ownership)
+    )
+
+
+def bind_owners(scores, threshold):
+    """Causal per-pair binding from pair_scores output.
+
+    Each pair keeps its best score so far, so evidence from earlier windows (for
+    example carrying) persists after the pair stops moving. An unbound item is
+    bound, at the first scoring time when any of its pairs' best score reaches
+    the threshold, to the person with the highest best score; like the rules
+    engine, a binding is then kept. Returns {(item, owner): seconds bound}.
+    """
+    best, bound, last_seen = {}, {}, {}
+    # All scores at one time are updated before any binding at that time.
+    for timestamp, group in groupby(sorted(scores), key=lambda score: score[0]):
+        items = set()
+        for _, person, item, score in group:
+            best[(person, item)] = max(best.get((person, item), 0.0), score)
+            last_seen[item] = timestamp
+            items.add(item)
+        for item in items - bound.keys():
+            eligible = [(s, p) for (p, i), s in best.items() if i == item and s >= threshold]
+            if eligible:
+                bound[item] = (max(eligible)[1], timestamp)
+    return {(item, owner): last_seen[item] - since for item, (owner, since) in bound.items()}
 
 
 def save(model, path, **extra):

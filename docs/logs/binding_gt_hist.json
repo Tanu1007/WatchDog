@@ -1,0 +1,1384 @@
+{
+ "split": "validation",
+ "source": "ground truth",
+ "rules_config": "configs\\rules_virat_moderate.json",
+ "hop": 15,
+ "rules": {
+  "gt_owned_items": 13,
+  "covered_items": 8,
+  "correct_items": 8,
+  "unjudged_bindings": 3
+ },
+ "st_lstm_mean": {
+  "gt_owned_items": 13.0,
+  "covered_items": 12.0,
+  "correct_items": 12.0,
+  "unjudged_bindings": 3.0
+ },
+ "st_lstm_std": {
+  "gt_owned_items": 0.0,
+  "covered_items": 0.0,
+  "correct_items": 0.0,
+  "unjudged_bindings": 0.0
+ },
+ "st_lstm_runs": {
+  "hist_seed0": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "hist_seed1": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "hist_seed2": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "hist_seed3": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  },
+  "hist_seed4": {
+   "gt_owned_items": 13,
+   "covered_items": 12,
+   "correct_items": 12,
+   "unjudged_bindings": 3
+  }
+ },
+ "per_clip": [
+  {
+   "clip": "VIRAT_S_000200_00_000100_000171",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000200_02_000479_000635",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000201_00_000018_000380",
+   "rules": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000201_01_000384_000589",
+   "rules": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000201_02_000590_000623",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000201_04_000682_000822",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000203_08_001702_001734",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000205_01_000197_000342",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000205_02_000409_000566",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000205_03_000860_000922",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000205_05_001092_001124",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000206_08_001618_001712",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000207_02_000498_000530",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_000207_03_000556_000590",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040000_00_000000_000036",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040000_01_000042_000099",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040000_04_000532_000622",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040000_08_001084_001190",
+   "rules": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040000_09_001194_001574",
+   "rules": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040003_00_000000_000072",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040003_01_000083_000193",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040003_02_000197_000552",
+   "rules": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040005_06_000886_001016",
+   "rules": {
+    "gt_owned_items": 2,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040005_08_001225_001276",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040103_00_000000_000120",
+   "rules": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 1,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040103_01_000132_000195",
+   "rules": {
+    "gt_owned_items": 2,
+    "covered_items": 1,
+    "correct_items": 1,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040103_02_000199_000279",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040103_03_000284_000425",
+   "rules": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   },
+   "hist_seed0": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   },
+   "hist_seed1": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   },
+   "hist_seed2": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   },
+   "hist_seed3": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   },
+   "hist_seed4": {
+    "gt_owned_items": 2,
+    "covered_items": 2,
+    "correct_items": 2,
+    "unjudged_bindings": 3
+   }
+  },
+  {
+   "clip": "VIRAT_S_040103_06_000836_000909",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_040104_07_001268_001348",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_050000_06_000908_000970",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_050000_08_001235_001295",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_050000_09_001310_001373",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  },
+  {
+   "clip": "VIRAT_S_050000_11_001530_001576",
+   "rules": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed0": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed1": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed2": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed3": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   },
+   "hist_seed4": {
+    "gt_owned_items": 0,
+    "covered_items": 0,
+    "correct_items": 0,
+    "unjudged_bindings": 0
+   }
+  }
+ ]
+}

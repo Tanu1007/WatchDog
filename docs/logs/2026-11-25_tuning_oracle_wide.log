@@ -1,0 +1,57 @@
+loaded 45 train clips
+{
+  "tune_split": "train",
+  "check_split": "validation",
+  "predictions": "ground truth (oracle)",
+  "candidates": 108,
+  "best_settings": {
+    "bind_distance": 0.01,
+    "minimum_motion": 0.005,
+    "velocity_cosine_min": 0.1,
+    "bind_duration_s": 0.2
+  },
+  "tune": {
+    "default": {
+      "gt_owned_items": 35,
+      "covered_items": 13,
+      "correct_items": 13,
+      "unjudged_bindings": 0,
+      "binding_coverage": 0.3714,
+      "owner_accuracy": 1.0,
+      "alerts": 0,
+      "false_alerts_per_hour": 0.0
+    },
+    "best": {
+      "gt_owned_items": 35,
+      "covered_items": 23,
+      "correct_items": 23,
+      "unjudged_bindings": 12,
+      "binding_coverage": 0.6571,
+      "owner_accuracy": 1.0,
+      "alerts": 0,
+      "false_alerts_per_hour": 0.0
+    }
+  },
+  "check": {
+    "default": {
+      "gt_owned_items": 13,
+      "covered_items": 5,
+      "correct_items": 5,
+      "unjudged_bindings": 0,
+      "binding_coverage": 0.3846,
+      "owner_accuracy": 1.0,
+      "alerts": 0,
+      "false_alerts_per_hour": 0.0
+    },
+    "best": {
+      "gt_owned_items": 13,
+      "covered_items": 10,
+      "correct_items": 10,
+      "unjudged_bindings": 3,
+      "binding_coverage": 0.7692,
+      "owner_accuracy": 1.0,
+      "alerts": 0,
+      "false_alerts_per_hour": 0.0
+    }
+  }
+}

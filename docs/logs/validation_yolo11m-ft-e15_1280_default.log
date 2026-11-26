@@ -1,0 +1,85 @@
+VIRAT_S_000200_00_000100_000171: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.5194 item nan
+VIRAT_S_000200_02_000479_000635: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.4009 item nan
+VIRAT_S_000201_00_000018_000380: oracle 0/2 bound, 0 correct | e2e 0/2 bound, 0 correct, 0 alerts | IDF1 person 0.8253 item 0
+VIRAT_S_000201_01_000384_000589: oracle 1/1 bound, 1 correct | e2e 0/1 bound, 0 correct, 0 alerts | IDF1 person 0.6758 item 0
+VIRAT_S_000201_02_000590_000623: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.6196 item nan
+VIRAT_S_000201_04_000682_000822: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.8971 item nan
+VIRAT_S_000203_08_001702_001734: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.7757 item nan
+VIRAT_S_000205_01_000197_000342: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.7638 item 0
+VIRAT_S_000205_02_000409_000566: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.5472 item nan
+VIRAT_S_000205_03_000860_000922: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.3832 item nan
+VIRAT_S_000205_05_001092_001124: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.6555 item nan
+VIRAT_S_000206_08_001618_001712: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.6 item nan
+VIRAT_S_000207_02_000498_000530: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.79 item nan
+VIRAT_S_000207_03_000556_000590: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.9466 item nan
+VIRAT_S_040000_00_000000_000036: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.1692 item nan
+VIRAT_S_040000_01_000042_000099: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.3033 item nan
+VIRAT_S_040000_04_000532_000622: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.7237 item nan
+VIRAT_S_040000_08_001084_001190: oracle 1/1 bound, 1 correct | e2e 1/1 bound, 1 correct, 0 alerts | IDF1 person 0.3935 item 0.6273
+VIRAT_S_040000_09_001194_001574: oracle 1/1 bound, 1 correct | e2e 1/1 bound, 1 correct, 0 alerts | IDF1 person 0.2664 item 0.2867
+VIRAT_S_040003_00_000000_000072: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.4214 item 0
+VIRAT_S_040003_01_000083_000193: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.4492 item 0
+VIRAT_S_040003_02_000197_000552: oracle 0/1 bound, 0 correct | e2e 0/1 bound, 0 correct, 0 alerts | IDF1 person 0.5224 item 0.113
+VIRAT_S_040005_06_000886_001016: oracle 0/2 bound, 0 correct | e2e 0/2 bound, 0 correct, 0 alerts | IDF1 person 0.6747 item 0.3667
+VIRAT_S_040005_08_001225_001276: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.8878 item nan
+VIRAT_S_040103_00_000000_000120: oracle 0/1 bound, 0 correct | e2e 0/1 bound, 0 correct, 0 alerts | IDF1 person 0.4286 item 0.7007
+VIRAT_S_040103_01_000132_000195: oracle 1/2 bound, 1 correct | e2e 1/2 bound, 1 correct, 0 alerts | IDF1 person 0.4887 item 0.1161
+VIRAT_S_040103_02_000199_000279: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.348 item 0
+VIRAT_S_040103_03_000284_000425: oracle 1/2 bound, 1 correct | e2e 1/2 bound, 1 correct, 0 alerts | IDF1 person 0.4335 item 0.3084
+VIRAT_S_040103_06_000836_000909: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.5924 item 0
+VIRAT_S_040104_07_001268_001348: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.4088 item 0
+VIRAT_S_050000_06_000908_000970: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.2784 item nan
+VIRAT_S_050000_08_001235_001295: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.8483 item 0
+VIRAT_S_050000_09_001310_001373: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.6598 item nan
+VIRAT_S_050000_11_001530_001576: oracle 0/0 bound, 0 correct | e2e 0/0 bound, 0 correct, 0 alerts | IDF1 person 0.6762 item nan
+{
+  "split": "validation",
+  "clips": 34,
+  "predictions": "D:\\watchdog-data\\tracks\\virat_yolo11m-ft-e15_1280_botsort",
+  "oracle": {
+    "gt_owned_items": 13,
+    "covered_items": 5,
+    "correct_items": 5,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.3846,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 0.9428,
+    "false_alerts_per_hour": 0.0
+  },
+  "end_to_end": {
+    "gt_owned_items": 13,
+    "covered_items": 4,
+    "correct_items": 4,
+    "unjudged_bindings": 0,
+    "binding_coverage": 0.3077,
+    "owner_accuracy": 1.0,
+    "alerts": 0,
+    "hours": 1.0301,
+    "false_alerts_per_hour": 0.0
+  },
+  "tracking": {
+    "person": {
+      "idf1": 0.6001,
+      "idp": 0.6135,
+      "idr": 0.5872,
+      "mota": 0.4725,
+      "recall": 0.7167,
+      "precision": 0.7488,
+      "num_switches": 495,
+      "num_objects": 130757,
+      "num_unique_objects": 283
+    },
+    "item": {
+      "idf1": 0.3683,
+      "idp": 0.5359,
+      "idr": 0.2805,
+      "mota": 0.18,
+      "recall": 0.353,
+      "precision": 0.6744,
+      "num_switches": 17,
+      "num_objects": 6705,
+      "num_unique_objects": 16
+    }
+  }
+}
