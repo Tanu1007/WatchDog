@@ -22,7 +22,7 @@ Owner of this session: Tanvi Patel. Data lives on an external drive at `D:\watch
 | Part 2: rule tuning on ground-truth tracks | ✅ Validation coverage 38% → 62–77% at 100% accuracy, 0 false alarms |
 | Part 2: YOLO11m@1280 + BoT-SORT on all 79 VIRAT videos | ✅ Done in 1 h 43 min (≈21 processed FPS) |
 | Part 2: end-to-end evaluation on VIRAT | ✅ Person IDF1 0.42 (val) / 0.43 (train); binding coverage 23% (val) with moderate rules, 100% accuracy, 0 false alarms |
-| Part 2: item detection on VIRAT | 🔄 YOLO-World tried (recall 6.5%, precision 7%). Option (a): yolo11m fine-tuned on VIRAT person + item boxes, 15 epochs done. Held-out item recall 0.51, precision 0.74 (mAP50 0.56). On the validation split: item recall 35% (was 2.9%), binding 6/13 with moderate rules, 0 false alarms |
+| Part 2: item detection on VIRAT | ✅ YOLO-World tried and dropped (not feasible: 6.5% recall, 7% precision). Using yolo11m fine-tuned on VIRAT person + item boxes: item recall 35% (was 2.9%), precision 67%, binding 6/13 with moderate rules, 0 false alarms |
 
 ## Timeline
 
@@ -116,10 +116,10 @@ The gap between 21:45 and 00:16 was idle time between sessions.
 | 23 | 02:01 | 02:03 | 34 s + ≈1 min | `scripts/tune_rules.py`: 54 + 108 grid candidates on train, best checked on validation. | Moderate set (`configs/rules_virat_moderate.json`): validation coverage 62%, accuracy 100%. Aggressive set (`configs/rules_virat_aggressive.json`): 77%, 100%, but 0.1 direction threshold and 0.2 s binding, so overfitting risk. 0 alerts for both. |
 | 24 | 02:07 | 03:50 | 1 h 43 min | `track_videos.py` with yolo11m@1280 + BoT-SORT on all 79 VIRAT videos (2.67 h of footage), validation first. Output: `D:\watchdog-data\tracks\virat_yolo11m_1280_botsort`. | 79/79 clips, ≈21 processed FPS (≈42 source FPS), faster than real time at 15 FPS. |
 | 25 | 03:50 | 03:58 | ≈8 min | End-to-end evaluation (`evaluate_virat.py`), both splits × default / moderate / aggressive rules. Fixed two crashes on a train clip that annotates only vehicles (`tracking_metrics` now returns empty; per-clip line skips IDF1). Reports: `logs/{validation,train}_yolo11m_1280_*.json`. | See the results table below. 25/25 tests still pass. |
-| 26 | 04:05 | 04:17 | ≈12 min | Option (b): open-vocabulary items. Added `item_classes` to `UltralyticsTracker` (calls `set_classes`; every non-person prompt is an item), `--item-classes` to `watchdog video` and `track_videos.py`. Ultralytics auto-installed `clip` (from GitHub) and downloaded `yolov8l-worldv2.pt` (338 MB). Pilot 3 on the two pilot clips, prompts `backpack handbag suitcase bag box cart`, moderate rules. | See the pilot 3 table below. |
+| 26 | 04:05 | 04:17 | ≈12 min | Chose YOLO-World (open-vocabulary prompts) to improve item detection. Added `--item-classes` to the tracker, `watchdog video` and `track_videos.py`; Ultralytics auto-installed `clip` and downloaded `yolov8l-worldv2.pt` (338 MB). Pilot on the two pilot clips. | Item recall 2.4% → 9.9% on the pilot, so tried the full validation split (27). |
 | 27 | 04:17 | 06:39 | 56 min compute (2 h 22 min wall) | YOLO-World-L @1280, conf 0.1, on the full validation split. Output: `tracks/virat_yolov8l-worldv2_1280_c0.1_botsort`. The first clip did not start until ≈05:42; the log gives no reason for the 85-minute delay (possibly the laptop or drive sleeping). | 34/34 clips, 16.7 processed FPS. |
-| 28 | 06:39 | 06:44 | ≈5 min | Evaluated the YOLO-World validation tracks with default, moderate and aggressive rules. Reports: `logs/validation_yolov8l-worldv2_1280_c0.1_*.json`. | See the comparison table below. |
-| 29 | 07:05 | 07:20 | ≈15 min (export 5 min 19 s) | Option (a). Checked label completeness: only 2.3% of yolo11m person detections with confidence ≥ 0.6 have no DIVA person box (IoU < 0.3), so no pseudo-labels are needed. Wrote `scripts/export_yolo_dataset.py` (train split only; frames with items every 6th frame, others every 30th; every 5th clip held out as YOLO val, separately for clips with and without items), `scripts/train_detector.py`, and a test. The tracker now also accepts a class named `item`. Dataset: `D:\watchdog-data\yolo\virat_person_item`. | Train 7,260 images (25,862 person, 4,115 item boxes, 35 clips); held-out val 1,329 images (4,643 / 673, 8 clips). VIRAT validation split untouched. 26/26 tests pass. |
+| 28 | 06:39 | 06:44 | ≈5 min | Evaluated the YOLO-World validation tracks with default, moderate and aggressive rules. Reports: `logs/validation_yolov8l-worldv2_1280_c0.1_*.json`. | **Not feasible:** item recall 6.5% with 7% precision, and a false alert. YOLO-World dropped; moved to fine-tuning yolo11m (29). |
+| 29 | 07:05 | 07:20 | ≈15 min (export 5 min 19 s) | YOLO-World was not feasible, so: fine-tune yolo11m on VIRAT boxes. Checked label completeness: only 2.3% of yolo11m person detections with confidence ≥ 0.6 have no DIVA person box (IoU < 0.3), so no pseudo-labels are needed. Wrote `scripts/export_yolo_dataset.py` (train split only; frames with items every 6th frame, others every 30th; every 5th clip held out as YOLO val, separately for clips with and without items), `scripts/train_detector.py`, and a test. The tracker now also accepts a class named `item`. Dataset: `D:\watchdog-data\yolo\virat_person_item`. | Train 7,260 images (25,862 person, 4,115 item boxes, 35 clips); held-out val 1,329 images (4,643 / 673, 8 clips). VIRAT validation split untouched. 26/26 tests pass. |
 | 30 | 07:20 | stopped | — | `train_detector.py`: yolo11m (COCO) → person + item, imgsz 1280, batch 4, 4 data-loader workers, 30 epochs, patience 8. Output: `D:\watchdog-data\runs\detect\virat_person_item`. Claude Code stopped it during epoch 1 because system RAM ran low (16 GB laptop; on Windows each data-loader worker loads its own copy of PyTorch). No checkpoint was saved, so it has to start again from scratch. | Restarted after the user approved (see 31). |
 | 31 | 14:20 | 14:29 | ≈9 min | Restart tuning. (1) `--workers 1`, batch 4: 1.2 s per batch, **8.05 of 8.15 GB VRAM**, so Windows spilled GPU memory into system RAM (97% commit, 1.3 GB free); 30 epochs would take ≈18 h. Stopped after 3 min. (2) Batch 2: 4.8 GB VRAM, 5.5 batches/s (≈11 images/s), ≈12.5 min per epoch, 30 epochs ≈6.3 h. Stopped after 2 min at the user's request. Ultralytics accumulates gradients to a nominal batch of 64, so the smaller batch keeps the effective batch size. | Final settings: batch 2, 1 worker, 15 epochs. |
 | 32 | 14:29 | 18:06 | 3 h 37 min wall (≈2 h 55 min training; 2 stops) | `train_detector.py --epochs 15 --batch 2 --workers 1 --name virat_person_item_e15`. Log: `D:\watchdog-data\runs\train_virat_person_item_e15.log`. **Per-epoch metrics: [logs/training_virat_person_item_e15.md](logs/training_virat_person_item_e15.md)**, regenerated after every epoch by `scripts/training_log.py`. | Epoch 1 (13.5 min): precision 0.73, recall 0.42, mAP50 0.48, mAP50-95 0.20. Best so far, epoch 4: 0.78 / 0.57 / 0.64 / 0.31. **Claude Code stopped the run at ≈15:25, partway through epoch 5, for low system RAM** (other apps such as Discord were open). The epoch-4 checkpoint `weights/last.pt` is saved, so it can resume with `--resume`. Resumed at 15:45 (epochs 5–6 done; best epoch 5: 0.83 / 0.55 / 0.64 / 0.32). **Stopped again for low RAM at ≈16:14, partway through epoch 7**, although other apps were closed and 7.7 GB was free afterwards. The epoch-6 `last.pt` is saved. Resumed at 16:18 in the user's own terminal (outside Claude Code's background-job memory check) and finished all 15 epochs at 18:06 with no further stops. **Best checkpoint: epoch 11** (precision 0.80, recall 0.63, mAP50 0.695, mAP50-95 0.345), copied to `weights/yolo11m_virat_person_item.pt`. Curves: `logs/training_virat_person_item_e15_results.png`. |
@@ -180,22 +180,11 @@ Owner binding: items correctly bound / items with a ground-truth owner. Oracle =
 
 Every binding that could be judged named the correct owner (accuracy 100%, except 20/21 for moderate on the train oracle). Unjudged bindings, where a predicted track maps to no annotated item, rise with looser rules: 6 → 11 on validation, 13 → 34 on train. On predicted tracks the aggressive set gains nothing over moderate and makes 2–3× more unjudged bindings, so **moderate is the recommended rule set**. The gap between oracle and end-to-end is almost entirely item detection.
 
-### Pilot 3: open-vocabulary item detection (2 validation clips, 4 owned items, moderate rules)
+### Item detection: YOLO-World tried and dropped; yolo11m fine-tuned instead
 
-| Setup | Person IDF1 | Item recall / precision | Owners bound correctly | Processed FPS |
-| --- | --- | --- | --- | --- |
-| yolo11m@1280 (COCO classes) | 0.32 | 2.4% / 51% | 1/4 | ≈22 |
-| YOLO-World-S @1280, conf 0.1 | 0.31 | 1.2% / 33% | 0/4 | ≈29 |
-| YOLO-World-L @1280, conf 0.25 | 0.33 | 7.4% / 37% | 2/4 | ≈15 |
-| **YOLO-World-L @1280, conf 0.1** | 0.33 | **9.9%** / 33% | **2/4** | ≈16 |
+The COCO-trained yolo11m found only 2.9% of VIRAT's items. **We first chose YOLO-World** (open-vocabulary prompts "backpack, handbag, suitcase, bag, box, cart", no training). **It was not feasible:** on the validation split it found 6.5% of items, but 93% of its item detections were wrong, and it caused the first false alert. **So we fine-tuned yolo11m on VIRAT's own person and item boxes**, which is the detector used from then on (`weights/yolo11m_virat_person_item.pt`). YOLO-World is no longer used; only the optional `--item-classes` flag remains in the code.
 
-YOLO-World-L detects about four times as many items with no training and no loss in person tracking, at roughly real time for 15 FPS processing. Item recall is still under 10%, so fine-tuning (option a) remains the fallback.
-
-**Decision (25 Nov, 04:05):** the user chose option (b), YOLO-World, first. **Decision (25 Nov, ≈07:00):** after the YOLO-World results, the user chose option (a), fine-tuning.
-
-### Item detection: all three detectors on the VIRAT validation split (34 clips, 1.0 h, 13 owned items)
-
-The fine-tuned model never saw the validation split; it was trained on 35 train clips and its checkpoint was chosen on 8 others.
+Evidence, VIRAT validation split (34 clips, 1.0 h, 13 owned items). The fine-tuned model never saw these clips; it was trained on 35 train clips and its checkpoint was chosen on 8 others.
 
 | Metric | yolo11m@1280 (COCO) | YOLO-World-L @1280, conf 0.1 | **yolo11m fine-tuned on VIRAT @1280** |
 | --- | --- | --- | --- |
@@ -207,22 +196,7 @@ The fine-tuned model never saw the validation split; it was trained on 35 train 
 | False alerts (1.0 h) | 0 | 1 | **0** |
 | Processed FPS | ≈21 | ≈17 | **≈25** |
 
-Every judged binding names the correct owner. With moderate rules, end-to-end binding (6/13) is now close to the ground-truth-track ceiling (8/13 oracle), so the remaining gap is mostly the rules, not detection. **The fine-tuned detector is the new default for VIRAT-style footage.**
-
-### YOLO-World vs yolo11m on the full validation split (34 clips, 1.0 h, 13 owned items)
-
-| Metric | yolo11m@1280 | YOLO-World-L @1280, conf 0.1 |
-| --- | --- | --- |
-| Person IDF1 / recall / precision | 0.415 / 44.6% / 67.0% | **0.453** / 51.8% / 59.3% |
-| Item recall / precision | 2.9% / 23.0% | **6.5%** / 7.1% |
-| Binding, default rules | 0/13 (2 unjudged) | 3/13 (14 unjudged) |
-| Binding, moderate rules | 3/13 (6 unjudged) | 4/13 (43 unjudged) |
-| Binding, aggressive rules | 3/13 (11 unjudged) | 6/13 (76 unjudged), **1 false alert** |
-| Processed FPS | ≈21 | ≈17 |
-
-Every judged binding names the correct owner. YOLO-World improves person tracking and finds twice as many items, but more than 90% of its item detections match no annotated item, so unjudged bindings rise 7×. Some may be real but unannotated objects; most are probably false detections. That noise produced the first false alert on VIRAT. Conclusion: prompts alone are not enough; fine-tuning on VIRAT item boxes (option a) is the stronger next step.
-
-**Earlier decision point:** item detection. Options: (a) fine-tune YOLO on VIRAT `Prop`/`Push_Pulled_Object` boxes from the train split; (b) try an open-vocabulary detector (YOLO-World with prompts such as "bag", "box", "cart"); (c) accept that end-to-end binding on VIRAT is limited by detection and evaluate items on UCF-Crime instead.
+Every judged binding names the correct owner. With moderate rules, end-to-end binding (6/13) is now close to the ground-truth-track ceiling (8/13 oracle), so the remaining gap is mostly the rules, not detection. YOLO-World pilot runs and reports are kept in `logs/` (`pilot3_*`, `validation_yolov8l-worldv2_*`) for reference.
 
 ### ST-LSTM input schema (agreed 25 Nov, 19:12)
 
@@ -351,6 +325,7 @@ All five seeds give identical counts; every judged binding names the right owner
 | UCF-Crime for anomaly pretraining and alert evaluation | It has 1,900 real CCTV videos in 13 anomaly categories, including Stealing and Shoplifting, with temporal labels on the test set. |
 | Full UCF-Crime zip rather than a 16 GB subset | Once the 1.86 TB drive was connected, space was no longer a constraint, and the normal training videos are needed for weakly supervised training. |
 | `--stride 2` for VIRAT tracks | VIRAT is about 30 FPS; the deck's windows are 60 frames at 15 FPS. |
+| Item detector: fine-tuned yolo11m, not YOLO-World | YOLO-World was chosen first but was not feasible on VIRAT (6.5% item recall, 7% precision, a false alert). Fine-tuning yolo11m on VIRAT boxes gave 35% recall and 67% precision with no false alerts. |
 | DIVA items = `Prop` and `Push_Pulled_Object` | Those are the object types involved in PickUp, SetDown and Object_Transfer. `Other` is a catch-all and can be added with `--item-types`. |
 
 ## Open items
