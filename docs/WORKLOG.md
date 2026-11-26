@@ -22,6 +22,8 @@ Owner of this session: Tanvi Patel. Data lives on an external drive at `D:\watch
 | Part 2: rule tuning on ground-truth tracks | ✅ Validation coverage 38% → 62–77% at 100% accuracy, 0 false alarms |
 | Part 2: YOLO11m@1280 + BoT-SORT on all 79 VIRAT videos | ✅ Done in 1 h 43 min (≈21 processed FPS) |
 | Part 2: end-to-end evaluation on VIRAT | ✅ Person IDF1 0.42 (val) / 0.43 (train); binding coverage 23% (val) with moderate rules, 100% accuracy, 0 false alarms |
+| Part 2: UCF-Crime alert evaluation | ✅ Done, negative result: rules detect 0/52 theft windows (0 false alerts in 6 h Normal); hybrid ST-LSTM 0–1/52 with 2–6 false alerts |
+| ST-LSTM | ✅ 14-feature model; hybrid binding in the alert FSM: VIRAT 12/13 (gt) and 7/13 (detector) owners, 0 false alerts |
 | Part 2: item detection on VIRAT | ✅ YOLO-World tried and dropped (not feasible: 6.5% recall, 7% precision). Using yolo11m fine-tuned on VIRAT person + item boxes: item recall 35% (was 2.9%), precision 67%, binding 6/13 with moderate rules, 0 false alarms |
 
 ## Timeline
@@ -69,7 +71,8 @@ gantt
     Fine-tune epochs 7–15          :done, 2026-11-25 16:18, 108m
     Per-class validation           :done, 2026-11-25 18:07, 15m
     VIRAT val tracking (fine-tuned):done, 2026-11-25 18:18, 38m
-    UCF-Crime tracking (yolo11m)   :active, 2026-11-25 18:56, 115m
+    UCF-Crime tracking (yolo11m)   :done, 2026-11-25 18:56, 140m
+    UCF alert evaluation           :done, 2026-11-25 21:22, 8m
     section ST-LSTM
     Features, windows, labels      :done, 2026-11-25 19:12, 12m
     Model, training, first run     :done, 2026-11-25 19:26, 7m
@@ -132,7 +135,8 @@ The gap between 21:45 and 00:16 was idle time between sessions.
 | 41 | 20:15 | 20:27 | ≈12 min | **Git.** `git init`; `.gitattributes` (LF in the repo); three commits, each tested in an isolated worktree: pre-LSTM (27 tests), ST-LSTM baseline (39 tests), then the history features, per-pair binding and docs (43 tests). `data/`, `weights/`, `runs/` and `*.pt` stay ignored (VIRAT agreement). The user created [github.com/Tanu1007/WatchDog](https://github.com/Tanu1007/WatchDog) with a placeholder README; the commits were rebased onto it (keeping the project README) instead of force-pushing. | On GitHub `main`: `151c58e` pre-LSTM, `d9f12e1` ST-LSTM baseline, `709628a` history features + binding + docs, then log updates. At the user's request the commit messages were rewritten (20:35) to drop the `Co-Authored-By: Claude` trailer; code unchanged, force-pushed with a lease. |
 | 42 | 20:28 | 20:35 | ≈7 min | Removed the `Co-Authored-By: Claude` trailer from every commit at the user's request (`git filter-branch --msg-filter`; trees unchanged) and force-pushed with a lease. | No trailers on GitHub; Tanvi Patel is the only author. |
 | 43 | 20:22 | 20:38 | ≈16 min (5 seeds × 2 modes evaluated in 1 min 49 s) | **ST-LSTM binding inside the alert FSM.** `OwnershipEngine(binder=..., binding="rules" \| "learned" \| "hybrid")`: learned binding asks the binder for an owner; hybrid falls back to the co-motion rules; everything after binding (deposit, guard, alert) is the unchanged rule policy. `stlstm.ScheduledBinder` replays the causal binding schedule from `binding_events`; `engine.engine_options` builds it per clip. `--binding` / `--stlstm` / `--hop` added to `evaluate_virat.py` and `evaluate_ucf.py`. 5 tests. | 48/48 tests pass. See "Binding modes under one alert policy" below. |
-| 36 | 18:56 | running | ≈1–1½ h (est.) | `track_videos.py` on UCF-Crime test videos: Stealing, Shoplifting, Robbery, Burglary and Normal (194 videos, 7.7 h), yolo11m COCO at imgsz 640. Output: `D:\watchdog-data\tracks\ucf_crime_yolo11m_640_botsort`. | — |
+| 36 | 18:56 | ≈21:15 | 2 h 25 min compute | `track_videos.py` on UCF-Crime test videos: Stealing, Shoplifting, Robbery, Burglary and Normal (194 videos, 7.7 h), yolo11m COCO at imgsz 640. Output: `D:\watchdog-data\tracks\ucf_crime_yolo11m_640_botsort`. One Normal video is 60 min long (≈17 min to process), which made progress look stalled. | 194/194 videos, 47.6 processed FPS. 1.10 M person and 52,935 item observations; 106 of 194 videos have any item track. |
+| 44 | 21:22 | 21:30 | ≈8 min (scoring ≈5 min) | **UCF-Crime alert evaluation**: `evaluate_ucf.py`, rules (default and moderate) and hybrid ST-LSTM binding (5 seeds, moderate rules). Fixed an out-of-memory crash: `pairwise.track_arrays` allocated a full-length array per track, which on the 60-min video (54k frames, thousands of track fragments) × 5 parallel runs exhausted RAM. Now `sparse_tracks` + `dense` per scored pair; rebuilt validation windows are byte-identical to the saved ones; 1 test. | 49/49 tests pass. See "UCF-Crime alert results" below. |
 | 33 | 14:40 | 14:55 | ≈15 min | UCF-Crime alert evaluation tooling, written while the GPU trains: `evaluation.score_alerts` (alert ↔ anomaly window matching with tolerance, lead time = window end − first alert, delay = first alert − window start), `scripts/evaluate_ucf.py` (theft and normal summaries, per category, false alerts per hour outside windows), `--categories` for `track_videos.py`, 1 test. Evaluation set: test-split Stealing 5, Shoplifting 21, Robbery 5, Burglary 13 (1.67 h, 18.5 min of labelled windows) and Normal 150 (6.0 h). All 320×240. | 27/27 tests pass; smoke test on dummy tracks OK. Detection waits for training to free the GPU (≈2–2½ h at imgsz 640). |
 
 ### Fine-tuning progress: yolo11m → person + item (run `virat_person_item_e15`)
@@ -316,6 +320,22 @@ Scored by `evaluate_virat.py` inside the engine (same as the earlier binding tab
 
 All five seeds give identical counts; every judged binding names the right owner. Inside the engine, learned-only end-to-end binding is 6/13 rather than the 7/13 of `evaluate_binding.py`, because the engine only applies a binding when the item is observed at or after the bind time (and drops items after `track_retention_s`). **Hybrid is the recommended mode**: it keeps the rules' bindings and adds the LSTM's (stationary owners, short co-motion), at no false-alarm cost on VIRAT. Alert behaviour on real thefts is measured on UCF-Crime next.
 
+### UCF-Crime alert results (test split; theft = Stealing 5, Shoplifting 21, Robbery 5, Burglary 13; 52 labelled windows, 1.67 h; Normal 150 videos, 6.0 h)
+
+COCO yolo11m at 640 + BoT-SORT, 15 FPS. An alert inside a labelled window ± 2 s detects it; any other alert is false.
+
+| Binding (rules after binding) | Theft windows detected | False alerts in theft videos | False alerts in Normal (6.0 h) | Normal videos with an alert |
+| --- | --- | --- | --- | --- |
+| Rules, default | 0/52 | 0 | 0 | 0/150 |
+| Rules, moderate | 0/52 | 1 | 0 | 0/150 |
+| Hybrid ST-LSTM, moderate (5 seeds) | 0–1/52 (Burglary017 on 2 seeds; lead 7.5 s) | 1–2 | 2–6 (0.3–1.0/h) | 2–5/150 |
+
+Reading:
+
+1. **The current alert rule almost never fires on UCF thefts.** It looks for one pattern: an item bound to an owner, set down, then handled by someone else. Most UCF thefts do not show that: shop or building property has no owner in view (Shoplifting, Burglary), the theft happens at 320×240 where COCO yolo11m rarely sees the object (items appear in only 106 of 194 videos), and Robbery rarely involves a tracked item.
+2. **Hybrid binding adds false alarms on UCF** (2–6 in 6 h vs 0 for the rules), unlike on VIRAT where it added none. The ST-LSTM was trained only on VIRAT's high-resolution ground-truth tracks; on UCF's noisy low-resolution tracks it binds more people to items, giving the guard stage more chances to fire. It also varies by seed here.
+3. **What this means:** on VIRAT, ST-LSTM binding clearly improves owner binding; on UCF, neither method is a theft detector yet. Next options: a theft cue that does not require a visible owner (e.g. item displacement by a person, using the interaction head), a stricter binding threshold for hybrid mode on unfamiliar cameras, UCF anomaly pretraining as the deck plans, and labelled campus clips.
+
 ## Decisions and why
 
 | Decision | Why |
@@ -341,4 +361,5 @@ All five seeds give identical counts; every judged binding names the right owner
 - [ ] Optional: re-tune rules on fine-tuned-detector tracks; try the fine-tuned detector on UCF-Crime.
 - [x] ST-LSTM on 60-frame pairwise windows: baseline, history features, per-pair binding (done).
 - [x] ST-LSTM binding in the alert FSM (`--binding hybrid`); VIRAT: 0 false alerts.
-- [ ] Score UCF-Crime alerts for rules vs hybrid; streaming binder for live `watchdog video`; reduce unjudged bindings; pose ablation.
+- [x] Score UCF-Crime alerts for rules vs hybrid (done: neither detects UCF thefts; hybrid adds 2–6 false alerts in 6 h).
+- [ ] Theft cue without a visible owner; stricter hybrid threshold on unfamiliar cameras; UCF anomaly pretraining; streaming binder for live `watchdog video`; pose ablation.

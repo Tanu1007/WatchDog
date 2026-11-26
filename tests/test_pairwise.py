@@ -80,6 +80,18 @@ class PairFeatureTests(unittest.TestCase):
         self.assertAlmostEqual(float(since[-1]), (89 - 29) / FPS / 30, places=5)
         self.assertEqual(float(features[-1, COLUMN["velocity_cosine"]]), 0.0)
 
+    def test_sparse_tracks_store_only_observed_frames(self):
+        frames = carry_frames(count=20, item_missing={3, 4})
+        times, tracks = pairwise.sparse_tracks(frames)
+        kind, indices, boxes = tracks[2]
+        self.assertEqual(kind, "item")
+        self.assertEqual(len(indices), 18)
+        self.assertNotIn(3, indices.tolist())
+        full = pairwise.dense(tracks[2], len(times))
+        self.assertTrue(np.isnan(full[3]).all())
+        np.testing.assert_array_equal(full[5], frames[5].observations[1].bbox)
+        self.assertEqual(pairwise.candidate_pairs(tracks), [(1, 2)])
+
     def test_features_are_causal(self):
         frames = carry_frames(count=90, item_missing={40, 41})
         times, tracks = pairwise.track_arrays(frames)

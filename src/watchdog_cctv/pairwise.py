@@ -74,19 +74,38 @@ CANDIDATE_GAP = 0.1  # pairs are kept if their box gap ever falls below this
 HISTORY_FEATURES = ("comotion_seconds", "since_comotion")
 
 
-def track_arrays(frames):
-    """Return (times (T,), {track_id: (kind, boxes (T, 4) with NaN where absent)})."""
+def sparse_tracks(frames):
+    """Return (times (T,), {track_id: (kind, frame indices (n,), boxes (n, 4))}).
+
+    Memory grows with observations, not tracks x frames, so hour-long videos
+    with thousands of track fragments fit; use dense() for the pairs you score.
+    """
     times = np.array([frame.timestamp for frame in frames], dtype=np.float64)
-    boxes = {}
+    rows = {}
     for index, frame in enumerate(frames):
         for observation in frame.observations:
-            if observation.track_id not in boxes:
-                boxes[observation.track_id] = (
-                    observation.kind,
-                    np.full((len(frames), 4), np.nan, dtype=np.float64),
-                )
-            boxes[observation.track_id][1][index] = observation.bbox
-    return times, boxes
+            kind, indices, boxes = rows.setdefault(observation.track_id, (observation.kind, [], []))
+            indices.append(index)
+            boxes.append(observation.bbox)
+    tracks = {
+        track: (kind, np.array(indices), np.array(boxes, dtype=np.float64))
+        for track, (kind, indices, boxes) in rows.items()
+    }
+    return times, tracks
+
+
+def dense(track, count):
+    """(count, 4) boxes for one sparse track, NaN where it is absent."""
+    _, indices, boxes = track
+    full = np.full((count, 4), np.nan, dtype=np.float64)
+    full[indices] = boxes
+    return full
+
+
+def track_arrays(frames):
+    """Return (times (T,), {track_id: (kind, boxes (T, 4) with NaN where absent)})."""
+    times, tracks = sparse_tracks(frames)
+    return times, {track: (value[0], dense(value, len(times))) for track, value in tracks.items()}
 
 
 def _centers(boxes):
@@ -191,14 +210,14 @@ def pair_features(times, person, item):
 
 
 def candidate_pairs(tracks, max_gap=CANDIDATE_GAP):
-    """(person, item) pairs whose boxes come within max_gap at least once."""
-    people = {t: b for t, (kind, b) in tracks.items() if kind == "person"}
-    items = {t: b for t, (kind, b) in tracks.items() if kind == "item"}
+    """(person, item) pairs of sparse tracks whose boxes come within max_gap at least once."""
+    people = {t: track for t, track in tracks.items() if track[0] == "person"}
+    items = {t: track for t, track in tracks.items() if track[0] == "item"}
     pairs = []
-    for item_id, item in items.items():
-        for person_id, person in people.items():
-            both = ~np.isnan(item[:, 0]) & ~np.isnan(person[:, 0])
-            if both.any() and box_gap(person[both], item[both]).min() <= max_gap:
+    for item_id, (_, item_index, item_boxes) in items.items():
+        for person_id, (_, person_index, person_boxes) in people.items():
+            _, at_person, at_item = np.intersect1d(person_index, item_index, return_indices=True)
+            if len(at_person) and box_gap(person_boxes[at_person], item_boxes[at_item]).min() <= max_gap:
                 pairs.append((person_id, item_id))
     return pairs
 
@@ -250,14 +269,14 @@ def build_windows(
     Returns (features (N, window, 12), masks (N, window, 3), ownership (N,),
     interaction (N,), meta list of dicts).
     """
-    times, tracks = track_arrays(frames)
+    times, tracks = sparse_tracks(frames)
     lookup = interaction_lookup(activities)
     translate = (lambda key: mapping.get(key)) if mapping is not None else (lambda key: key)
     out = {"features": [], "masks": [], "ownership": [], "interaction": [], "meta": []}
     if len(times) < window:
         return _stack(out, window)
     for person_id, item_id in candidate_pairs(tracks):
-        person, item = tracks[person_id][1], tracks[item_id][1]
+        person, item = dense(tracks[person_id], len(times)), dense(tracks[item_id], len(times))
         features, masks = pair_features(times, person, item)
         both = masks[:, 0] & masks[:, 1]
         present = np.flatnonzero(both)

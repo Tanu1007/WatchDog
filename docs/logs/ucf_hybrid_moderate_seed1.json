@@ -1,0 +1,2515 @@
+{
+ "predictions": "D:\\watchdog-data\\tracks\\ucf_crime_yolo11m_640_botsort",
+ "rules": {
+  "bind_duration_s": 0.4,
+  "bind_distance": 0.04,
+  "ambiguity_margin": 0.02,
+  "minimum_motion": 0.005,
+  "velocity_cosine_min": 0.5,
+  "stationary_speed": 0.012,
+  "owner_departure_distance": 0.2,
+  "contact_distance": 0.015,
+  "interaction_persistence_s": 1.2,
+  "occlusion_grace_s": 0.75,
+  "track_retention_s": 10.0,
+  "clear_duration_s": 1.0
+ },
+ "binding": "hybrid",
+ "stlstm": "D:\\watchdog-data\\runs\\stlstm\\hist_seed1",
+ "tolerance_seconds": 2.0,
+ "theft": {
+  "videos": 44,
+  "videos_with_alerts": 1,
+  "hours": 1.674,
+  "false_alerts": 1,
+  "false_alerts_per_hour": 0.765,
+  "windows": 52,
+  "windows_detected": 0,
+  "window_recall": 0.0,
+  "videos_detected": 0,
+  "median_lead_seconds": null,
+  "median_delay_seconds": null
+ },
+ "normal": {
+  "videos": 150,
+  "videos_with_alerts": 2,
+  "hours": 6.008,
+  "false_alerts": 2,
+  "false_alerts_per_hour": 0.333
+ },
+ "by_category": {
+  "Stealing": {
+   "videos": 5,
+   "videos_with_alerts": 0,
+   "hours": 0.183,
+   "false_alerts": 0,
+   "false_alerts_per_hour": 0.0,
+   "windows": 7,
+   "windows_detected": 0,
+   "window_recall": 0.0,
+   "videos_detected": 0,
+   "median_lead_seconds": null,
+   "median_delay_seconds": null
+  },
+  "Shoplifting": {
+   "videos": 21,
+   "videos_with_alerts": 1,
+   "hours": 0.705,
+   "false_alerts": 1,
+   "false_alerts_per_hour": 1.645,
+   "windows": 25,
+   "windows_detected": 0,
+   "window_recall": 0.0,
+   "videos_detected": 0,
+   "median_lead_seconds": null,
+   "median_delay_seconds": null
+  },
+  "Robbery": {
+   "videos": 5,
+   "videos_with_alerts": 0,
+   "hours": 0.077,
+   "false_alerts": 0,
+   "false_alerts_per_hour": 0.0,
+   "windows": 5,
+   "windows_detected": 0,
+   "window_recall": 0.0,
+   "videos_detected": 0,
+   "median_lead_seconds": null,
+   "median_delay_seconds": null
+  },
+  "Burglary": {
+   "videos": 13,
+   "videos_with_alerts": 0,
+   "hours": 0.709,
+   "false_alerts": 0,
+   "false_alerts_per_hour": 0.0,
+   "windows": 15,
+   "windows_detected": 0,
+   "window_recall": 0.0,
+   "videos_detected": 0,
+   "median_lead_seconds": null,
+   "median_delay_seconds": null
+  },
+  "Normal": {
+   "videos": 150,
+   "videos_with_alerts": 2,
+   "hours": 6.008,
+   "false_alerts": 2,
+   "false_alerts_per_hour": 0.333
+  }
+ },
+ "per_clip": [
+  {
+   "clip_id": "Burglary005_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.07156481481481482,
+   "hours_outside_windows": 0.06739814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 157.0,
+     "end": 168.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary017_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.019564814814814816,
+   "hours_outside_windows": 0.014287037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 5.0,
+     "end": 20.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary018_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.010416666666666666,
+   "hours_outside_windows": 0.00625,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 24.0,
+     "end": 35.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary021_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.014231481481481482,
+   "hours_outside_windows": 0.006083333333333334,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 2.0,
+     "end": 6.666666666666667,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 28.0,
+     "end": 44.666666666666664,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary024_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.033379629629629634,
+   "hours_outside_windows": 0.021435185185185186,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 2.0,
+     "end": 41.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary032_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.14625,
+   "hours_outside_windows": 0.12291666666666666,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 43.0,
+     "end": 123.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary033_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.011657407407407408,
+   "hours_outside_windows": 0.008046296296296296,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 2.0,
+     "end": 11.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary035_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.0375,
+   "hours_outside_windows": 0.020833333333333332,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 0.03333333333333333,
+     "end": 58.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary037_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.017777777777777778,
+   "hours_outside_windows": 0.0025,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 8.0,
+     "end": 13.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 18.0,
+     "end": 60.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary061_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.08324074074074074,
+   "hours_outside_windows": 0.06824074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 140.0,
+     "end": 190.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary076_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.1196574074074074,
+   "hours_outside_windows": 0.09345370370370369,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 53.0,
+     "end": 143.33333333333334,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary079_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.13752777777777778,
+   "hours_outside_windows": 0.10900925925925926,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 258.3333333333333,
+     "end": 357.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Burglary092_x264",
+   "category": "Burglary",
+   "group": "theft",
+   "hours": 0.005787037037037037,
+   "hours_outside_windows": 0.003009259259259259,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 8.0,
+     "end": 14.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Robbery048_x264",
+   "category": "Robbery",
+   "group": "theft",
+   "hours": 0.013046296296296297,
+   "hours_outside_windows": 0.007490740740740741,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 15.0,
+     "end": 31.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Robbery050_x264",
+   "category": "Robbery",
+   "group": "theft",
+   "hours": 0.01575,
+   "hours_outside_windows": 0.0061666666666666675,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 16.5,
+     "end": 47.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Robbery102_x264",
+   "category": "Robbery",
+   "group": "theft",
+   "hours": 0.016916666666666667,
+   "hours_outside_windows": 0.01136111111111111,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 36.0,
+     "end": 52.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Robbery106_x264",
+   "category": "Robbery",
+   "group": "theft",
+   "hours": 0.011083333333333332,
+   "hours_outside_windows": 0.008861111111111111,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 16.0,
+     "end": 20.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Robbery137_x264",
+   "category": "Robbery",
+   "group": "theft",
+   "hours": 0.020305555555555552,
+   "hours_outside_windows": 0.0023888888888888874,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 4.5,
+     "end": 65.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting001_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.04022222222222223,
+   "hours_outside_windows": 0.034944444444444445,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 51.666666666666664,
+     "end": 66.66666666666667,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting004_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.061787037037037036,
+   "hours_outside_windows": 0.03567592592592593,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 73.33333333333333,
+     "end": 163.33333333333334,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting005_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.018212962962962962,
+   "hours_outside_windows": 0.015157407407407406,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 24.0,
+     "end": 31.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting007_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.04744444444444445,
+   "hours_outside_windows": 0.0405925925925926,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 18.333333333333332,
+     "end": 25.333333333333332,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 154.33333333333334,
+     "end": 164.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting010_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.025333333333333333,
+   "hours_outside_windows": 0.017648148148148145,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 25.0,
+     "end": 30.666666666666668,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 51.666666666666664,
+     "end": 65.66666666666667,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting015_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.02088888888888889,
+   "hours_outside_windows": 0.01838888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 67.0,
+     "end": 72.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting016_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.01373148148148148,
+   "hours_outside_windows": 0.011787037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 21.0,
+     "end": 24.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting017_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.004231481481481481,
+   "hours_outside_windows": 0.002777777777777778,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 12.0,
+     "end": 14.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting020_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.053425925925925925,
+   "hours_outside_windows": 0.05120370370370371,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 78.0,
+     "end": 82.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting021_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.03287962962962963,
+   "hours_outside_windows": 0.030379629629629628,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 69.0,
+     "end": 74.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting022_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.020287037037037037,
+   "hours_outside_windows": 0.015564814814814814,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 9.0,
+     "end": 14.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 48.0,
+     "end": 52.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting027_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.01734259259259259,
+   "hours_outside_windows": 0.012157407407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 36.0,
+     "end": 38.666666666666664,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 49.0,
+     "end": 57.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting028_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.012564814814814815,
+   "hours_outside_windows": 0.008953703703703703,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 19.0,
+     "end": 28.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting029_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.020148148148148148,
+   "hours_outside_windows": 0.01487037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 34.0,
+     "end": 49.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting031_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.004138888888888889,
+   "hours_outside_windows": 0.0010833333333333335,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 4.0,
+     "end": 11.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting033_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.008324074074074074,
+   "hours_outside_windows": 0.006101851851851851,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 21.0,
+     "end": 25.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting034_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.11052777777777777,
+   "hours_outside_windows": 0.10830555555555554,
+   "alert_times": [
+    162.333333
+   ],
+   "false_alert_times": [
+    162.333333
+   ],
+   "events": [
+    {
+     "start": 245.0,
+     "end": 249.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting037_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.012833333333333334,
+   "hours_outside_windows": 0.011166666666666667,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 38.0,
+     "end": 40.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting039_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.025953703703703705,
+   "hours_outside_windows": 0.023453703703703706,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 73.0,
+     "end": 78.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting044_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.13476851851851854,
+   "hours_outside_windows": 0.13199074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 369.0,
+     "end": 375.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Shoplifting049_x264",
+   "category": "Shoplifting",
+   "group": "theft",
+   "hours": 0.01989814814814815,
+   "hours_outside_windows": 0.01573148148148148,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 34.0,
+     "end": 45.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Stealing019_x264",
+   "category": "Stealing",
+   "group": "theft",
+   "hours": 0.04547222222222222,
+   "hours_outside_windows": 0.041027777777777774,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 91.0,
+     "end": 93.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 139.0,
+     "end": 145.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Stealing036_x264",
+   "category": "Stealing",
+   "group": "theft",
+   "hours": 0.023175925925925926,
+   "hours_outside_windows": 0.01900925925925926,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 42.0,
+     "end": 53.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Stealing058_x264",
+   "category": "Stealing",
+   "group": "theft",
+   "hours": 0.04621296296296296,
+   "hours_outside_windows": 0.016490740740740743,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 19.0,
+     "end": 122.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Stealing062_x264",
+   "category": "Stealing",
+   "group": "theft",
+   "hours": 0.014444444444444444,
+   "hours_outside_windows": 0.006944444444444444,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 12.0,
+     "end": 35.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Stealing079_x264",
+   "category": "Stealing",
+   "group": "theft",
+   "hours": 0.05412962962962963,
+   "hours_outside_windows": 0.03662962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": [
+    {
+     "start": 85.0,
+     "end": 107.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    },
+    {
+     "start": 117.0,
+     "end": 150.0,
+     "detected": false,
+     "first_alert": null,
+     "lead_seconds": null,
+     "delay_seconds": null
+    }
+   ]
+  },
+  {
+   "clip_id": "Normal_Videos_003_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.026129629629629628,
+   "hours_outside_windows": 0.026129629629629628,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_006_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004166666666666667,
+   "hours_outside_windows": 0.004166666666666667,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_010_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.00975,
+   "hours_outside_windows": 0.00975,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_014_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01387962962962963,
+   "hours_outside_windows": 0.01387962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_015_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0044444444444444444,
+   "hours_outside_windows": 0.0044444444444444444,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_018_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.010935185185185185,
+   "hours_outside_windows": 0.010935185185185185,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_019_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.026324074074074073,
+   "hours_outside_windows": 0.026324074074074073,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_024_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.009962962962962963,
+   "hours_outside_windows": 0.009962962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_025_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005574074074074074,
+   "hours_outside_windows": 0.005574074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_027_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.04557407407407407,
+   "hours_outside_windows": 0.04557407407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_033_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015555555555555555,
+   "hours_outside_windows": 0.015555555555555555,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_034_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.012203703703703703,
+   "hours_outside_windows": 0.012203703703703703,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_041_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01175,
+   "hours_outside_windows": 0.01175,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_042_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.029203703703703704,
+   "hours_outside_windows": 0.029203703703703704,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_048_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015277777777777777,
+   "hours_outside_windows": 0.015277777777777777,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_050_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.038870370370370375,
+   "hours_outside_windows": 0.038870370370370375,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_051_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.021833333333333333,
+   "hours_outside_windows": 0.021833333333333333,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_056_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.014555555555555556,
+   "hours_outside_windows": 0.014555555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_059_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01699074074074074,
+   "hours_outside_windows": 0.01699074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_063_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.003287037037037037,
+   "hours_outside_windows": 0.003287037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_067_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.00988888888888889,
+   "hours_outside_windows": 0.00988888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_070_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.009194444444444444,
+   "hours_outside_windows": 0.009194444444444444,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_100_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005805555555555555,
+   "hours_outside_windows": 0.005805555555555555,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_129_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004324074074074074,
+   "hours_outside_windows": 0.004324074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_150_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008,
+   "hours_outside_windows": 0.008,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_168_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01611111111111111,
+   "hours_outside_windows": 0.01611111111111111,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_175_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.08191666666666667,
+   "hours_outside_windows": 0.08191666666666667,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_182_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03790740740740741,
+   "hours_outside_windows": 0.03790740740740741,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_189_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.006824074074074074,
+   "hours_outside_windows": 0.006824074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_196_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.018555555555555554,
+   "hours_outside_windows": 0.018555555555555554,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_203_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.023805555555555555,
+   "hours_outside_windows": 0.023805555555555555,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_210_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.050074074074074076,
+   "hours_outside_windows": 0.050074074074074076,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_217_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016824074074074075,
+   "hours_outside_windows": 0.016824074074074075,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_224_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.06442592592592593,
+   "hours_outside_windows": 0.06442592592592593,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_246_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.046231481481481485,
+   "hours_outside_windows": 0.046231481481481485,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_247_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.07602777777777778,
+   "hours_outside_windows": 0.07602777777777778,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_248_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.010555555555555556,
+   "hours_outside_windows": 0.010555555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_251_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.00375,
+   "hours_outside_windows": 0.00375,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_289_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.007990740740740741,
+   "hours_outside_windows": 0.007990740740740741,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_310_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.023314814814814816,
+   "hours_outside_windows": 0.023314814814814816,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_312_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011675925925925925,
+   "hours_outside_windows": 0.011675925925925925,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_317_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008601851851851852,
+   "hours_outside_windows": 0.008601851851851852,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_345_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0019351851851851852,
+   "hours_outside_windows": 0.0019351851851851852,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_352_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.050027777777777775,
+   "hours_outside_windows": 0.050027777777777775,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_360_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.00911111111111111,
+   "hours_outside_windows": 0.00911111111111111,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_365_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.06135185185185185,
+   "hours_outside_windows": 0.06135185185185185,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_401_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015055555555555556,
+   "hours_outside_windows": 0.015055555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_417_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.009972222222222223,
+   "hours_outside_windows": 0.009972222222222223,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_439_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03912962962962963,
+   "hours_outside_windows": 0.03912962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_452_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004101851851851852,
+   "hours_outside_windows": 0.004101851851851852,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_453_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.04927777777777778,
+   "hours_outside_windows": 0.04927777777777778,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_478_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.041685185185185186,
+   "hours_outside_windows": 0.041685185185185186,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_576_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.10439814814814814,
+   "hours_outside_windows": 0.10439814814814814,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_597_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.020638888888888887,
+   "hours_outside_windows": 0.020638888888888887,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_603_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03034259259259259,
+   "hours_outside_windows": 0.03034259259259259,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_606_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011416666666666667,
+   "hours_outside_windows": 0.011416666666666667,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_621_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.04446296296296296,
+   "hours_outside_windows": 0.04446296296296296,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_634_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.12462037037037037,
+   "hours_outside_windows": 0.12462037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_641_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03333333333333333,
+   "hours_outside_windows": 0.03333333333333333,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_656_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016805555555555556,
+   "hours_outside_windows": 0.016805555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_686_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.022314814814814815,
+   "hours_outside_windows": 0.022314814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_696_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03356481481481481,
+   "hours_outside_windows": 0.03356481481481481,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_702_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.02336111111111111,
+   "hours_outside_windows": 0.02336111111111111,
+   "alert_times": [
+    20.6
+   ],
+   "false_alert_times": [
+    20.6
+   ],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_704_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015685185185185187,
+   "hours_outside_windows": 0.015685185185185187,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_710_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016638888888888887,
+   "hours_outside_windows": 0.016638888888888887,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_717_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011620370370370371,
+   "hours_outside_windows": 0.011620370370370371,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_722_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0808425925925926,
+   "hours_outside_windows": 0.0808425925925926,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_725_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008518518518518519,
+   "hours_outside_windows": 0.008518518518518519,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_745_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.002824074074074074,
+   "hours_outside_windows": 0.002824074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_758_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.014712962962962964,
+   "hours_outside_windows": 0.014712962962962964,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_778_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011685185185185186,
+   "hours_outside_windows": 0.011685185185185186,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_780_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.018712962962962962,
+   "hours_outside_windows": 0.018712962962962962,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_781_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03680555555555556,
+   "hours_outside_windows": 0.03680555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_782_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.05132407407407408,
+   "hours_outside_windows": 0.05132407407407408,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_783_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0887962962962963,
+   "hours_outside_windows": 0.0887962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_798_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.05556481481481482,
+   "hours_outside_windows": 0.05556481481481482,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_801_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.025407407407407406,
+   "hours_outside_windows": 0.025407407407407406,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_828_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008611111111111111,
+   "hours_outside_windows": 0.008611111111111111,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_831_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004148148148148148,
+   "hours_outside_windows": 0.004148148148148148,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_866_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011092592592592591,
+   "hours_outside_windows": 0.011092592592592591,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_867_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005777777777777778,
+   "hours_outside_windows": 0.005777777777777778,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_868_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.02223148148148148,
+   "hours_outside_windows": 0.02223148148148148,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_869_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.02223148148148148,
+   "hours_outside_windows": 0.02223148148148148,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_870_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005564814814814815,
+   "hours_outside_windows": 0.005564814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_871_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.040351851851851854,
+   "hours_outside_windows": 0.040351851851851854,
+   "alert_times": [
+    138.866667
+   ],
+   "false_alert_times": [
+    138.866667
+   ],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_872_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004907407407407408,
+   "hours_outside_windows": 0.004907407407407408,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_873_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01665740740740741,
+   "hours_outside_windows": 0.01665740740740741,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_874_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03912962962962963,
+   "hours_outside_windows": 0.03912962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_875_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.02375,
+   "hours_outside_windows": 0.02375,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_876_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.00325,
+   "hours_outside_windows": 0.00325,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_877_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.09282407407407407,
+   "hours_outside_windows": 0.09282407407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_878_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.002453703703703704,
+   "hours_outside_windows": 0.002453703703703704,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_879_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.010583333333333333,
+   "hours_outside_windows": 0.010583333333333333,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_880_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.16716666666666666,
+   "hours_outside_windows": 0.16716666666666666,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_881_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.002074074074074074,
+   "hours_outside_windows": 0.002074074074074074,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_882_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015314814814814814,
+   "hours_outside_windows": 0.015314814814814814,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_883_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0030185185185185185,
+   "hours_outside_windows": 0.0030185185185185185,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_884_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.08360185185185184,
+   "hours_outside_windows": 0.08360185185185184,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_885_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.004388888888888889,
+   "hours_outside_windows": 0.004388888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_886_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.025435185185185186,
+   "hours_outside_windows": 0.025435185185185186,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_887_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.07064814814814815,
+   "hours_outside_windows": 0.07064814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_888_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005314814814814815,
+   "hours_outside_windows": 0.005314814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_889_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0029074074074074076,
+   "hours_outside_windows": 0.0029074074074074076,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_890_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.03313888888888889,
+   "hours_outside_windows": 0.03313888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_891_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016666666666666666,
+   "hours_outside_windows": 0.016666666666666666,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_892_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01638888888888889,
+   "hours_outside_windows": 0.01638888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_893_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.05901851851851852,
+   "hours_outside_windows": 0.05901851851851852,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_894_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.023842592592592592,
+   "hours_outside_windows": 0.023842592592592592,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_895_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.028055555555555556,
+   "hours_outside_windows": 0.028055555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_896_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.021324074074074075,
+   "hours_outside_windows": 0.021324074074074075,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_897_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008101851851851851,
+   "hours_outside_windows": 0.008101851851851851,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_898_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.009305555555555555,
+   "hours_outside_windows": 0.009305555555555555,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_899_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.012777777777777779,
+   "hours_outside_windows": 0.012777777777777779,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_900_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.013472222222222222,
+   "hours_outside_windows": 0.013472222222222222,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_901_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.010833333333333334,
+   "hours_outside_windows": 0.010833333333333334,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_902_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.012814814814814815,
+   "hours_outside_windows": 0.012814814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_903_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.007314814814814815,
+   "hours_outside_windows": 0.007314814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_904_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008407407407407407,
+   "hours_outside_windows": 0.008407407407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_905_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011074074074074075,
+   "hours_outside_windows": 0.011074074074074075,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_906_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0062592592592592596,
+   "hours_outside_windows": 0.0062592592592592596,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_907_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.005537037037037037,
+   "hours_outside_windows": 0.005537037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_908_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008231481481481482,
+   "hours_outside_windows": 0.008231481481481482,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_909_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008055555555555555,
+   "hours_outside_windows": 0.008055555555555555,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_910_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0052499999999999995,
+   "hours_outside_windows": 0.0052499999999999995,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_911_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.007185185185185185,
+   "hours_outside_windows": 0.007185185185185185,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_912_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.006907407407407407,
+   "hours_outside_windows": 0.006907407407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_913_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0056388888888888895,
+   "hours_outside_windows": 0.0056388888888888895,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_914_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008148148148148147,
+   "hours_outside_windows": 0.008148148148148147,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_915_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.011527777777777777,
+   "hours_outside_windows": 0.011527777777777777,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_923_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.16874074074074075,
+   "hours_outside_windows": 0.16874074074074075,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_924_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.9999722222222223,
+   "hours_outside_windows": 0.9999722222222223,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_925_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.07153703703703704,
+   "hours_outside_windows": 0.07153703703703704,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_926_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01662962962962963,
+   "hours_outside_windows": 0.01662962962962963,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_927_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.015120370370370369,
+   "hours_outside_windows": 0.015120370370370369,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_928_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0085,
+   "hours_outside_windows": 0.0085,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_929_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.008555555555555556,
+   "hours_outside_windows": 0.008555555555555556,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_930_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.02950925925925926,
+   "hours_outside_windows": 0.02950925925925926,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_931_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016342592592592593,
+   "hours_outside_windows": 0.016342592592592593,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_932_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01651851851851852,
+   "hours_outside_windows": 0.01651851851851852,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_933_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016398148148148148,
+   "hours_outside_windows": 0.016398148148148148,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_934_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.016342592592592593,
+   "hours_outside_windows": 0.016342592592592593,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_935_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.9999444444444445,
+   "hours_outside_windows": 0.9999444444444445,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_936_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01064814814814815,
+   "hours_outside_windows": 0.01064814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_937_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.01064814814814815,
+   "hours_outside_windows": 0.01064814814814815,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_938_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.044694444444444446,
+   "hours_outside_windows": 0.044694444444444446,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_939_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.007416666666666667,
+   "hours_outside_windows": 0.007416666666666667,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_940_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.3334907407407407,
+   "hours_outside_windows": 0.3334907407407407,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_941_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.0187037037037037,
+   "hours_outside_windows": 0.0187037037037037,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_943_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.009444444444444445,
+   "hours_outside_windows": 0.009444444444444445,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  },
+  {
+   "clip_id": "Normal_Videos_944_x264",
+   "category": "Normal",
+   "group": "normal",
+   "hours": 0.06638888888888889,
+   "hours_outside_windows": 0.06638888888888889,
+   "alert_times": [],
+   "false_alert_times": [],
+   "events": []
+  }
+ ]
+}
