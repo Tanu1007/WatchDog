@@ -1,6 +1,6 @@
 # UCF-Crime: the alert rule misses real thefts, and ST-LSTM binding adds false alarms there
 
-**Status:** open (pending). Found on 25 Nov 2026 in the UCF-Crime test evaluation.
+**Status:** open (pending), [GitHub issue #1](https://github.com/Tanu1007/WatchDog/issues/1). Found on 25 Nov 2026 in the UCF-Crime test evaluation.
 
 ## What happens
 
