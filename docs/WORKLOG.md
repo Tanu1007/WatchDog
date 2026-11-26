@@ -137,6 +137,7 @@ The gap between 21:45 and 00:16 was idle time between sessions.
 | 43 | 20:22 | 20:38 | ≈16 min (5 seeds × 2 modes evaluated in 1 min 49 s) | **ST-LSTM binding inside the alert FSM.** `OwnershipEngine(binder=..., binding="rules" \| "learned" \| "hybrid")`: learned binding asks the binder for an owner; hybrid falls back to the co-motion rules; everything after binding (deposit, guard, alert) is the unchanged rule policy. `stlstm.ScheduledBinder` replays the causal binding schedule from `binding_events`; `engine.engine_options` builds it per clip. `--binding` / `--stlstm` / `--hop` added to `evaluate_virat.py` and `evaluate_ucf.py`. 5 tests. | 48/48 tests pass. See "Binding modes under one alert policy" below. |
 | 36 | 18:56 | ≈21:15 | 2 h 25 min compute | `track_videos.py` on UCF-Crime test videos: Stealing, Shoplifting, Robbery, Burglary and Normal (194 videos, 7.7 h), yolo11m COCO at imgsz 640. Output: `D:\watchdog-data\tracks\ucf_crime_yolo11m_640_botsort`. One Normal video is 60 min long (≈17 min to process), which made progress look stalled. | 194/194 videos, 47.6 processed FPS. 1.10 M person and 52,935 item observations; 106 of 194 videos have any item track. |
 | 44 | 21:22 | 21:30 | ≈8 min (scoring ≈5 min) | **UCF-Crime alert evaluation**: `evaluate_ucf.py`, rules (default and moderate) and hybrid ST-LSTM binding (5 seeds, moderate rules). Fixed an out-of-memory crash: `pairwise.track_arrays` allocated a full-length array per track, which on the 60-min video (54k frames, thousands of track fragments) × 5 parallel runs exhausted RAM. Now `sparse_tracks` + `dense` per scored pair; rebuilt validation windows are byte-identical to the saved ones; 1 test. | 49/49 tests pass. See "UCF-Crime alert results" below. |
+| 45 | 23:15 | 23:20 | ≈5 min | Docs: merged the 14 ST-LSTM features into one table in "ST-LSTM input schema" (group, definition and plain-language meaning for each, plus the 3 masks); the history section now points to it. `ARCHITECTURE.md`: `pairwise.py` label 12-D → 14-D. | Docs only. |
 | 33 | 14:40 | 14:55 | ≈15 min | UCF-Crime alert evaluation tooling, written while the GPU trains: `evaluation.score_alerts` (alert ↔ anomaly window matching with tolerance, lead time = window end − first alert, delay = first alert − window start), `scripts/evaluate_ucf.py` (theft and normal summaries, per category, false alerts per hour outside windows), `--categories` for `track_videos.py`, 1 test. Evaluation set: test-split Stealing 5, Shoplifting 21, Robbery 5, Burglary 13 (1.67 h, 18.5 min of labelled windows) and Normal 150 (6.0 h). All 320×240. | 27/27 tests pass; smoke test on dummy tracks OK. Detection waits for training to free the GPU (≈2–2½ h at imgsz 640). |
 
 ### Fine-tuning progress: yolo11m → person + item (run `virat_person_item_e15`)
@@ -202,25 +203,36 @@ Evidence, VIRAT validation split (34 clips, 1.0 h, 13 owned items). The fine-tun
 
 Every judged binding names the correct owner. With moderate rules, end-to-end binding (6/13) is now close to the ground-truth-track ceiling (8/13 oracle), so the remaining gap is mostly the rules, not detection. YOLO-World pilot runs and reports are kept in `logs/` (`pilot3_*`, `validation_yolov8l-worldv2_*`) for reference.
 
-### ST-LSTM input schema (agreed 25 Nov, 19:12)
+### ST-LSTM input schema (agreed 25 Nov, 19:12; features 13–14 added 20:01)
 
-Per frame, per person–item pair. Distances are image-space (normalized box coordinates ÷ the person's box height); speeds are person heights per second. Values are clipped to ±10 and set to 0 where an input is missing.
+Per frame, per person–item pair: **14 features + 3 masks** (`pairwise.FEATURE_NAMES`, `pairwise.MASK_NAMES`). Features 1–12 are the originally agreed set; 13–14 are the pair-history features added in row 40. Distances are image-space (normalized box coordinates ÷ the person's box height, so near and far pairs look alike); speeds are person heights per second. Values are clipped to ±10. Pair features are set to 0 where either box is missing (the two speeds need only their own box; the history features keep their value). Every feature is causal: it uses only the current and earlier frames, so a live camera computes the same values.
 
-| # | Feature | Definition |
-| --- | --- | --- |
-| 1–2 | `dx`, `dy` | Item center minus person center |
-| 3 | `box_gap` | Minimum gap between the boxes (the rules engine's distance) |
-| 4 | `center_distance` | Distance between centers |
-| 5 | `iou` | Box intersection over union |
-| 6 | `person_speed` | From the previous visible sample within 0.5 s |
-| 7 | `item_speed` | Same, for the item |
-| 8 | `velocity_cosine` | Cosine of the two velocities; 0 unless both move faster than 0.05 heights/s |
-| 9 | `relative_speed` | Magnitude of the velocity difference |
-| 10 | `item_displacement` | Item's distance from where it was first seen in the clip |
-| 11 | `wrist_distance` | Placeholder: always 0 until pose is added (ablation) |
-| 12 | `copresence_seconds` | Time since the pair was first visible together, capped at 10 s, ÷ 10 |
+| # | Feature | Group | Definition | In plain words |
+| --- | --- | --- | --- | --- |
+| 1 | `dx` | Position | Item center x minus person center x | How far right of the person the item is |
+| 2 | `dy` | Position | Item center y minus person center y | How far below the person the item is |
+| 3 | `box_gap` | Position | Minimum gap between the boxes (the rules engine's distance) | How close they are; 0 when touching |
+| 4 | `center_distance` | Position | Distance between centers | Straight-line distance |
+| 5 | `iou` | Position | Box intersection over union | How much the boxes overlap |
+| 6 | `person_speed` | Motion | From the previous visible sample within 0.5 s | How fast the person moves |
+| 7 | `item_speed` | Motion | Same, for the item | How fast the item moves |
+| 8 | `velocity_cosine` | Motion | Cosine of the two velocities; 0 unless both move faster than 0.05 heights/s | Same direction? (1 = yes) |
+| 9 | `relative_speed` | Motion | Magnitude of the velocity difference | ≈0 when the item is carried |
+| 10 | `item_displacement` | Motion | Item's distance from where it was first seen in the clip | How far the item has been moved |
+| 11 | `wrist_distance` | Pose | Placeholder: always 0 until pose is added (ablation) | Not used yet |
+| 12 | `copresence_seconds` | Time | Time since the pair was first visible together, capped at 10 s, ÷ 10 | How long they've been together |
+| 13 | `comotion_seconds` | History | Total co-motion time so far in the clip, capped at 10 s, ÷ 10 | How long they've moved together |
+| 14 | `since_comotion` | History | Seconds since the last co-motion frame, capped at 30 s, ÷ 30 (1 if none yet) | How long ago they last moved together |
 
-Masks (separate from the 12): `person_visible`, `item_visible`, `pose_available` (always 0 for now).
+A frame counts as **co-motion** when both move faster than 0.05 heights/s, velocity cosine ≥ 0.7 and box gap ≤ 0.5 heights. Features 13–14 let a stationary owner stay recognized after putting the bag down.
+
+| Mask | Meaning |
+| --- | --- |
+| `person_visible` | Person box seen in this frame |
+| `item_visible` | Item box seen in this frame |
+| `pose_available` | Pose keypoints available (always 0 for now) |
+
+The model input per frame is these 17 values (14 standardized features + 3 masks).
 
 Windows: 60 frames at 15 FPS (4 s), hop 30 (50% overlap). Candidate pairs: the boxes come within 0.1 (normalized image units) at least once. Splits are whole clips from `splits.csv`.
 
@@ -271,14 +283,7 @@ Findings:
 
 ### ST-LSTM with history features and per-pair binding (25 Nov, 20:01–20:15)
 
-**Schema change (approved by the user):** two causal pair-history features appended as #13–14, so ownership evidence persists after a pair stops moving together. A frame counts as co-motion when both move faster than 0.05 heights/s, velocity cosine ≥ 0.7 and box gap ≤ 0.5 heights.
-
-| # | Feature | Definition |
-| --- | --- | --- |
-| 13 | `comotion_seconds` | Total co-motion time so far in the clip, capped at 10 s, ÷ 10 |
-| 14 | `since_comotion` | Seconds since the last co-motion frame, capped at 30 s, ÷ 30 (1 if none yet) |
-
-Both keep their value while a box is briefly missing. Every feature is causal (a test checks that features of a clip prefix equal the prefix of the full clip's features).
+**Schema change (approved by the user):** two causal pair-history features appended as #13 `comotion_seconds` and #14 `since_comotion`, so ownership evidence persists after a pair stops moving together (full 14-feature table in "ST-LSTM input schema" above). Both keep their value while a box is briefly missing. Every feature is causal (a test checks that features of a clip prefix equal the prefix of the full clip's features).
 
 **Per window, 5 seeds each (mean ± std):**
 

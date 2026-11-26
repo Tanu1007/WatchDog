@@ -71,7 +71,7 @@ flowchart TB
     TYP["types.py<br/>Observation · Frame · Alert"]:::done
     VIR["virat.py<br/>VIRAT → Frames"]:::new
     EVA["evaluation.py<br/>IDF1 · binding · alert scoring"]:::new
-    PW["pairwise.py<br/>12-D features · windows · labels"]:::new
+    PW["pairwise.py<br/>14-D features · windows · labels"]:::new
     S9["scripts/build_windows.py"]:::new
     ST["stlstm.py<br/>PairwiseSTLSTM · metrics"]:::new
     S10["scripts/train_stlstm.py<br/>scripts/evaluate_stlstm.py"]:::new
