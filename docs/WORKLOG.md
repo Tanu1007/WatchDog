@@ -22,7 +22,7 @@ Owner of this session: Tanvi Patel. Data lives on an external drive at `D:\watch
 | Part 2: rule tuning on ground-truth tracks | ✅ Validation coverage 38% → 62–77% at 100% accuracy, 0 false alarms |
 | Part 2: YOLO11m@1280 + BoT-SORT on all 79 VIRAT videos | ✅ Done in 1 h 43 min (≈21 processed FPS) |
 | Part 2: end-to-end evaluation on VIRAT | ✅ Person IDF1 0.42 (val) / 0.43 (train); binding coverage 23% (val) with moderate rules, 100% accuracy, 0 false alarms |
-| Part 2: UCF-Crime alert evaluation | ✅ Done, negative result: rules detect 0/52 theft windows (0 false alerts in 6 h Normal); hybrid ST-LSTM 0–1/52 with 2–6 false alerts |
+| Part 2: UCF-Crime alert evaluation | ⏳ Pending (issue 001): rules detect 0/52 theft windows (0 false alerts in 6 h Normal); hybrid ST-LSTM 0–1/52 with 2–6 false alerts |
 | ST-LSTM | ✅ 14-feature model; hybrid binding in the alert FSM: VIRAT 12/13 (gt) and 7/13 (detector) owners, 0 false alerts |
 | Part 2: item detection on VIRAT | ✅ YOLO-World tried and dropped (not feasible: 6.5% recall, 7% precision). Using yolo11m fine-tuned on VIRAT person + item boxes: item recall 35% (was 2.9%), precision 67%, binding 6/13 with moderate rules, 0 false alarms |
 
@@ -362,4 +362,5 @@ Reading:
 - [x] ST-LSTM on 60-frame pairwise windows: baseline, history features, per-pair binding (done).
 - [x] ST-LSTM binding in the alert FSM (`--binding hybrid`); VIRAT: 0 false alerts.
 - [x] Score UCF-Crime alerts for rules vs hybrid (done: neither detects UCF thefts; hybrid adds 2–6 false alerts in 6 h).
-- [ ] Theft cue without a visible owner; stricter hybrid threshold on unfamiliar cameras; UCF anomaly pretraining; streaming binder for live `watchdog video`; pose ablation.
+- [ ] **PENDING: UCF-Crime theft detection** ([docs/issues/001-ucf-theft-detection.md](issues/001-ucf-theft-detection.md), GitHub issue): the owner-based alert rule misses thefts with no visible owner (0/52), and hybrid binding adds 2–6 false alarms in 6 h. Fix options: theft cue without an owner, stricter hybrid threshold on unfamiliar cameras, UCF anomaly pretraining, campus clips.
+- [ ] Streaming binder for live `watchdog video`; pose ablation.
