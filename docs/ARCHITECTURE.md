@@ -14,8 +14,8 @@ flowchart LR
     TRK["BoT-SORT / ByteTrack<br/>persistent track IDs"]:::done
     HOM["Homography<br/>ground-plane distance"]:::todo
     POSE["Pose / wrist keypoints"]:::todo
-    FEAT["Pairwise features<br/>12-D per person–item pair"]:::todo
-    LSTM["Pairwise ST-LSTM<br/>ownership head + interaction head"]:::todo
+    FEAT["Pairwise features<br/>14-D per person–item pair"]:::done
+    LSTM["Pairwise ST-LSTM<br/>ownership head + interaction head"]:::done
     RULES["Rule-based scorer<br/>co-motion binding, proximity persistence"]:::done
     FSM["Alert FSM<br/>owned → deposited → guarded → alert"]:::done
     EVT["Event record<br/>events.json"]:::done
@@ -26,7 +26,7 @@ flowchart LR
     TRK --> RULES --> FSM
     TRK -.-> HOM -.-> FEAT
     TRK -.-> POSE -.-> FEAT
-    TRK -.-> FEAT -.-> LSTM -.-> FSM
+    TRK --> FEAT --> LSTM -->|learned / hybrid binding| FSM
     FSM --> EVT --> OPS
     FSM --> CLIP --> OPS
 ```
@@ -138,7 +138,7 @@ flowchart LR
     TJ -->|build_windows.py| WIN["60-frame pairwise windows<br/>14 features + 3 masks"]:::done
     WIN -->|train_stlstm.py| TR["ST-LSTM<br/>ownership + interaction"]:::done
     TR -->|evaluate_binding.py| PB["per-pair binding<br/>best score so far"]:::done
-    PB -.-> FSMX["ST-LSTM binding in the alert FSM"]:::todo
+    PB -->|ScheduledBinder| FSMX["alert FSM with<br/>rules / learned / hybrid binding"]:::done
 ```
 
 UCF tracking is running; the UCF alert scoring is built and tested but not yet run on real tracks.

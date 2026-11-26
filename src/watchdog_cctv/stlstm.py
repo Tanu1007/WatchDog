@@ -104,13 +104,20 @@ def pair_scores(model, frames, hop=15):
 
 
 def bind_owners(scores, threshold):
+    """{(item, owner): seconds bound} from binding_events (for score_bindings)."""
+    bound, last_seen = binding_events(scores, threshold)
+    return {(item, owner): last_seen[item] - since for item, (owner, since) in bound.items()}
+
+
+def binding_events(scores, threshold):
     """Causal per-pair binding from pair_scores output.
 
     Each pair keeps its best score so far, so evidence from earlier windows (for
     example carrying) persists after the pair stops moving. An unbound item is
     bound, at the first scoring time when any of its pairs' best score reaches
     the threshold, to the person with the highest best score; like the rules
-    engine, a binding is then kept. Returns {(item, owner): seconds bound}.
+    engine, a binding is then kept. Returns ({item: (owner, bind time)},
+    {item: last scored time}).
     """
     best, bound, last_seen = {}, {}, {}
     # All scores at one time are updated before any binding at that time.
@@ -124,7 +131,27 @@ def bind_owners(scores, threshold):
             eligible = [(s, p) for (p, i), s in best.items() if i == item and s >= threshold]
             if eligible:
                 bound[item] = (max(eligible)[1], timestamp)
-    return {(item, owner): last_seen[item] - since for item, (owner, since) in bound.items()}
+    return bound, last_seen
+
+
+class ScheduledBinder:
+    """OwnershipEngine binder that replays a binding schedule.
+
+    The schedule comes from causal features (see pairwise), so asking it at time
+    t gives what a frame-by-frame binder would have decided by t. Use it for
+    replay and evaluation; live video needs a streaming binder.
+    """
+
+    def __init__(self, events):
+        self.events = events
+
+    def __call__(self, item_track_id, timestamp):
+        owner, since = self.events.get(item_track_id, (None, None))
+        return owner if owner is not None and timestamp + 1e-9 >= since else None
+
+    @classmethod
+    def from_frames(cls, model, frames, threshold, hop=15):
+        return cls(binding_events(pair_scores(model, frames, hop), threshold)[0])
 
 
 def save(model, path, **extra):

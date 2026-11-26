@@ -75,6 +75,13 @@ class BindingTests(unittest.TestCase):
         ]
         self.assertEqual(stlstm.bind_owners(sorted(scores), 0.7), {(9, 5): 1.0})
 
+    def test_scheduled_binder_answers_from_bind_time(self):
+        events, _ = stlstm.binding_events([(1.0, 5, 9, 0.2), (2.0, 5, 9, 0.9)], 0.7)
+        binder = stlstm.ScheduledBinder(events)
+        self.assertIsNone(binder(9, 1.9))
+        self.assertEqual(binder(9, 2.0), 5)
+        self.assertIsNone(binder(4, 5.0))
+
     def test_highest_eligible_person_wins_a_tie_in_time(self):
         scores = [(1.0, 5, 9, 0.8), (1.0, 6, 9, 0.9)]
         self.assertEqual(stlstm.bind_owners(scores, 0.7), {(9, 6): 0.0})

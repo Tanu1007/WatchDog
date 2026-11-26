@@ -21,6 +21,7 @@ from pathlib import Path
 
 from watchdog_cctv import evaluation
 from watchdog_cctv.config import Rules
+from watchdog_cctv.engine import BINDING_MODES, engine_options
 from watchdog_cctv.pipeline import read_tracks
 
 THEFT_CATEGORIES = ("Stealing", "Shoplifting", "Robbery", "Burglary")
@@ -63,8 +64,12 @@ def main():
     parser.add_argument("--categories", nargs="+", default=[*THEFT_CATEGORIES, "Normal"])
     parser.add_argument("--tolerance", type=float, default=2.0, help="seconds around each window")
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--stlstm", type=Path, help="train_stlstm run folder for learned/hybrid binding")
+    parser.add_argument("--binding", choices=BINDING_MODES, default="rules")
+    parser.add_argument("--hop", type=int, default=15, help="ST-LSTM scoring cadence in frames")
     args = parser.parse_args()
     rules = Rules.load(args.config)
+    engine_options_for = engine_options(args.binding, args.stlstm, args.hop)
     labels = json.loads((args.data / "annotations" / "ucf_crime_temporal.json").read_text(encoding="utf-8"))
 
     with (args.data / "splits.csv").open(encoding="utf-8") as source:
@@ -81,7 +86,8 @@ def main():
             continue
         label = labels[clip]
         windows = [(w["start_timestamp"], w["end_timestamp"]) for w in label["anomaly_windows"]]
-        _, alerts, _ = evaluation.run_engine(list(read_tracks(path)), rules)
+        frames = list(read_tracks(path))
+        _, alerts, _ = evaluation.run_engine(frames, rules, **engine_options_for(frames))
         alert_times = sorted(alert.decision_timestamp for alert in alerts)
         events, false_times = evaluation.score_alerts(alert_times, windows, args.tolerance)
         duration = label["duration_seconds"]
@@ -104,6 +110,8 @@ def main():
     report = {
         "predictions": str(args.predictions),
         "rules": rules.__dict__,
+        "binding": args.binding,
+        "stlstm": str(args.stlstm) if args.stlstm else None,
         "tolerance_seconds": args.tolerance,
         "theft": summarize(results, "theft"),
         "normal": summarize(results, "normal"),

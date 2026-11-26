@@ -123,5 +123,47 @@ class OwnershipTests(unittest.TestCase):
             Rules(velocity_cosine_min=1.1)
 
 
+def fixed_binder(owner, since=0.0):
+    """A binder that names `owner` for every item from time `since`."""
+    return lambda item, timestamp: owner if timestamp >= since else None
+
+
+class BindingModeTests(unittest.TestCase):
+    def test_learned_binder_binds_a_stationary_item(self):
+        engine = OwnershipEngine(binder=fixed_binder(1, since=2.0), binding="learned")
+        observations = (
+            Observation(1, "person", (0.3, 0.3, 0.4, 0.7)),
+            Observation(2, "item", (0.35, 0.6, 0.4, 0.65)),
+        )
+        for index in range(60):
+            engine.update(Frame(index / 15, observations))
+            expected = 1 if index / 15 >= 2.0 else None
+            self.assertEqual(engine.items[2].owner_id, expected)
+
+    def test_same_alert_policy_after_learned_binding(self):
+        engine = OwnershipEngine(binder=fixed_binder(17), binding="learned")
+        alerts = []
+        for frame in scenario_frames("suspicious_pickup"):
+            alerts.extend(engine.update(frame))
+        self.assertEqual([alert.actor_track_id for alert in alerts], [29])
+        self.assertEqual(alerts[0].owner_track_id, 17)
+
+    def test_learned_mode_ignores_rules_and_hybrid_falls_back(self):
+        never = fixed_binder(None)
+        learned = OwnershipEngine(binder=never, binding="learned")
+        hybrid = OwnershipEngine(binder=never, binding="hybrid")
+        for frame in scenario_frames("owner_retrieval"):
+            learned.update(frame)
+            hybrid.update(frame)
+        self.assertIsNone(learned.items[4].owner_id)
+        self.assertEqual(hybrid.items[4].owner_id, 17)
+
+    def test_invalid_binding_configuration(self):
+        with self.assertRaises(ValueError):
+            OwnershipEngine(binding="learned")
+        with self.assertRaises(ValueError):
+            OwnershipEngine(binder=fixed_binder(1), binding="votes")
+
+
 if __name__ == "__main__":
     unittest.main()

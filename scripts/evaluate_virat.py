@@ -7,6 +7,8 @@ For each clip, two engine runs are scored against DIVA ground truth:
 
 Tracking IDF1/MOTA is pooled over all clips. VIRAT contains no theft, so every
 alert counts as a false alarm. Writes a JSON report and prints a summary.
+--binding learned|hybrid with --stlstm uses ST-LSTM owner binding inside the
+same engine (the alert policy after binding is unchanged).
 
 Usage:
     python scripts/evaluate_virat.py --data D:/watchdog-data --split validation
@@ -21,6 +23,7 @@ from pathlib import Path
 
 from watchdog_cctv import evaluation, virat
 from watchdog_cctv.config import Rules
+from watchdog_cctv.engine import BINDING_MODES, engine_options
 from watchdog_cctv.pipeline import read_tracks
 
 
@@ -65,8 +68,12 @@ def main():
     parser.add_argument("--config", type=Path, help="rules JSON (default: built-in Rules)")
     parser.add_argument("--stride", type=int, default=2, help="ground-truth stride for the oracle run")
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--stlstm", type=Path, help="train_stlstm run folder for learned/hybrid binding")
+    parser.add_argument("--binding", choices=BINDING_MODES, default="rules")
+    parser.add_argument("--hop", type=int, default=15, help="ST-LSTM scoring cadence in frames")
     args = parser.parse_args()
     rules = Rules.load(args.config)
+    engine_options_for = engine_options(args.binding, args.stlstm, args.hop)
     annotations = args.data / "raw" / "virat" / "diva_annotations"
 
     with (args.data / "splits.csv").open(encoding="utf-8") as source:
@@ -93,8 +100,8 @@ def main():
         present = {track for track, kind in kinds.items() if kind == "item"}
 
         gt_frames = list(virat.frames_from_detections(detections, width, height, fps, args.stride))
-        bindings, alerts, span = evaluation.run_engine(gt_frames, rules)
-        oracle = evaluation.score_bindings(bindings, owners, present)
+        bindings, alerts, span = evaluation.run_engine(gt_frames, rules, **engine_options_for(gt_frames))
+        oracle =evaluation.score_bindings(bindings, owners, present)
         add(oracle_total, oracle)
         oracle_alerts += len(alerts)
         oracle_hours += span / 3600
@@ -106,7 +113,7 @@ def main():
             accs, mapping = evaluation.tracking_metrics(full_gt, predicted, fps)
             for kind, accumulator in accs.items():
                 accumulators[kind].append(accumulator)
-            bindings, alerts, span = evaluation.run_engine(predicted, rules)
+            bindings, alerts, span = evaluation.run_engine(predicted, rules, **engine_options_for(predicted))
             e2e = evaluation.score_bindings(bindings, owners, present, mapping)
             add(e2e_total, e2e)
             e2e_alerts += len(alerts)
@@ -132,6 +139,8 @@ def main():
         "split": args.split,
         "clips": len(clips),
         "rules": rules.__dict__,
+        "binding": args.binding,
+        "stlstm": str(args.stlstm) if args.stlstm else None,
         "predictions": str(args.predictions) if args.predictions else None,
         "oracle": ratios(oracle_total, oracle_alerts, oracle_hours) if clips else None,
     }

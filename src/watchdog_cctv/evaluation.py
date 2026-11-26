@@ -122,9 +122,12 @@ def summarize_tracking(accumulators):
     return {name: _number(summary.loc["OVERALL", name]) for name in TRACKING_METRICS}
 
 
-def run_engine(frames, rules=None):
-    """Replay frames; return ({(item, owner): bound seconds}, alerts, span seconds)."""
-    engine = OwnershipEngine(rules or Rules(), "evaluation")
+def run_engine(frames, rules=None, binder=None, binding="rules"):
+    """Replay frames; return ({(item, owner): bound seconds}, alerts, span seconds).
+
+    binder/binding select learned or hybrid owner binding (see OwnershipEngine).
+    """
+    engine = OwnershipEngine(rules or Rules(), "evaluation", binder, binding)
     bound = Counter()
     alerts = []
     previous = None

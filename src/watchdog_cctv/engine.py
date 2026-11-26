@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from math import hypot
+from pathlib import Path
 from uuid import uuid4
 
 from .config import Rules
@@ -30,10 +31,51 @@ class ItemMemory:
         self.risk_score = 0.0
 
 
+BINDING_MODES = ("rules", "learned", "hybrid")
+
+
+def engine_options(binding="rules", stlstm_run=None, hop=15):
+    """Return frames -> extra OwnershipEngine keyword arguments for a binding mode.
+
+    For learned/hybrid binding, stlstm_run is a train_stlstm output folder; its
+    model.pt and stored threshold build a per-clip ScheduledBinder (needs torch).
+    """
+    if binding == "rules":
+        return lambda frames: {}
+    if stlstm_run is None:
+        raise ValueError(f"binding={binding!r} needs an ST-LSTM run")
+    from . import stlstm
+
+    model, checkpoint = stlstm.load(Path(stlstm_run) / "model.pt")
+    threshold = checkpoint.get("threshold", 0.5)
+    return lambda frames: {
+        "binder": stlstm.ScheduledBinder.from_frames(model, frames, threshold, hop),
+        "binding": binding,
+    }
+
+
 class OwnershipEngine:
-    def __init__(self, rules: Rules | None = None, camera_id: str = "camera-1"):
+    """binder: optional callable (item_track_id, timestamp) -> owner track ID or
+    None, e.g. a learned ST-LSTM binder. binding chooses who binds unowned items:
+    "rules" (co-motion rules only), "learned" (binder only) or "hybrid" (binder
+    first, rules as fallback). Everything after binding is the same alert policy.
+    """
+
+    def __init__(
+        self,
+        rules: Rules | None = None,
+        camera_id: str = "camera-1",
+        binder=None,
+        binding: str = "rules",
+    ):
+        if binding not in BINDING_MODES:
+            raise ValueError(f"binding must be one of {BINDING_MODES}")
+        if binding != "rules" and binder is None:
+            raise ValueError(f"binding={binding!r} needs a binder")
         self.rules = rules or Rules()
         self.camera_id = camera_id
+        self.binder = binder
+        self.binding = binding
         self.previous: dict[int, tuple[float, Observation]] = {}
         self.items: dict[int, ItemMemory] = {}
         self.last_timestamp: float | None = None
@@ -71,7 +113,12 @@ class OwnershipEngine:
                 continue
             memory = self.items.setdefault(item.track_id, ItemMemory(timestamp))
             memory.last_seen = timestamp
-            if memory.owner_id is None:
+            if memory.owner_id is None and self.binding != "rules":
+                owner_id = self.binder(item.track_id, timestamp)
+                if owner_id is not None:
+                    memory.owner_id = owner_id
+                    memory.state = "owned"
+            if memory.owner_id is None and self.binding != "learned":
                 self._bind(item, people, velocities, timestamp, memory)
             if memory.owner_id is not None:
                 event = self._guard(item, people, velocities, timestamp, memory)

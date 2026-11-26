@@ -76,6 +76,7 @@ gantt
     Seeds, detector test, analysis :done, 2026-11-25 19:36, 24m
     History features, pair binding :done, 2026-11-25 20:01, 14m
     Git repo, commits, push        :done, 2026-11-25 20:15, 12m
+    ST-LSTM binding in alert FSM   :done, 2026-11-25 20:22, 16m
 ```
 
 ## Detailed log
@@ -129,6 +130,8 @@ The gap between 21:45 and 00:16 was idle time between sessions.
 | 39 | 19:36 | 20:00 | ≈24 min (5 seeds trained in 2 min 36 s) | **ST-LSTM: detector-track test, threshold tuning, 5 seeds.** Built validation windows from the fine-tuned detector's tracks (`windows/virat_ft_validation`, labels via the predicted → ground-truth ID mapping). Added `stlstm.best_threshold` (F1-optimal cut-off on the selection clips, stored in `model.pt`), `scripts/evaluate_stlstm.py` (mean ± std over runs plus the gap rule on any window sets), 1 test. Trained seeds 0–4 (`runs/stlstm/gt_seed{0..4}`). Diagnosed missed owners and scored ownership per pair. | 39/39 tests pass. See "ST-LSTM: seeds, detector tracks, per-pair" below. |
 | 40 | 20:01 | 20:15 | ≈14 min | **ST-LSTM (a) history features + (b) per-pair binding**, approved by the user. (a) Two causal pair-history features appended to the schema (14 total): `comotion_seconds`, `since_comotion`; windows rebuilt as `windows/virat_*_v2`; 5 seeds retrained (`runs/stlstm/hist_seed{0..4}`). (b) `stlstm.pair_scores` + `stlstm.bind_owners`: score every candidate pair every 15 frames, keep each pair's best score so far, bind an item once a pair reaches the run's threshold (highest score wins, binding kept); `scripts/evaluate_binding.py` scores it with the same `score_bindings` as the rules. A test caught a same-timestamp ordering bug in `bind_owners` (fixed: all scores at a time are updated before binding). Older 12-feature models still load (they read the first 12 columns). | 43/43 tests pass. See "ST-LSTM with history features and per-pair binding" below. |
 | 41 | 20:15 | 20:27 | ≈12 min | **Git.** `git init`; `.gitattributes` (LF in the repo); three commits, each tested in an isolated worktree: pre-LSTM (27 tests), ST-LSTM baseline (39 tests), then the history features, per-pair binding and docs (43 tests). `data/`, `weights/`, `runs/` and `*.pt` stay ignored (VIRAT agreement). The user created [github.com/Tanu1007/WatchDog](https://github.com/Tanu1007/WatchDog) with a placeholder README; the commits were rebased onto it (keeping the project README) instead of force-pushing. | On GitHub `main`: `151c58e` pre-LSTM, `d9f12e1` ST-LSTM baseline, `709628a` history features + binding + docs, then log updates. At the user's request the commit messages were rewritten (20:35) to drop the `Co-Authored-By: Claude` trailer; code unchanged, force-pushed with a lease. |
+| 42 | 20:28 | 20:35 | ≈7 min | Removed the `Co-Authored-By: Claude` trailer from every commit at the user's request (`git filter-branch --msg-filter`; trees unchanged) and force-pushed with a lease. | No trailers on GitHub; Tanvi Patel is the only author. |
+| 43 | 20:22 | 20:38 | ≈16 min (5 seeds × 2 modes evaluated in 1 min 49 s) | **ST-LSTM binding inside the alert FSM.** `OwnershipEngine(binder=..., binding="rules" \| "learned" \| "hybrid")`: learned binding asks the binder for an owner; hybrid falls back to the co-motion rules; everything after binding (deposit, guard, alert) is the unchanged rule policy. `stlstm.ScheduledBinder` replays the causal binding schedule from `binding_events`; `engine.engine_options` builds it per clip. `--binding` / `--stlstm` / `--hop` added to `evaluate_virat.py` and `evaluate_ucf.py`. 5 tests. | 48/48 tests pass. See "Binding modes under one alert policy" below. |
 | 36 | 18:56 | running | ≈1–1½ h (est.) | `track_videos.py` on UCF-Crime test videos: Stealing, Shoplifting, Robbery, Burglary and Normal (194 videos, 7.7 h), yolo11m COCO at imgsz 640. Output: `D:\watchdog-data\tracks\ucf_crime_yolo11m_640_botsort`. | — |
 | 33 | 14:40 | 14:55 | ≈15 min | UCF-Crime alert evaluation tooling, written while the GPU trains: `evaluation.score_alerts` (alert ↔ anomaly window matching with tolerance, lead time = window end − first alert, delay = first alert − window start), `scripts/evaluate_ucf.py` (theft and normal summaries, per category, false alerts per hour outside windows), `--categories` for `track_videos.py`, 1 test. Evaluation set: test-split Stealing 5, Shoplifting 21, Robbery 5, Burglary 13 (1.67 h, 18.5 min of labelled windows) and Normal 150 (6.0 h). All 320×240. | 27/27 tests pass; smoke test on dummy tracks OK. Detection waits for training to free the GPU (≈2–2½ h at imgsz 640). |
 
@@ -327,6 +330,18 @@ Reading:
 3. **Caveat: more unjudged bindings on detector tracks** (≈13 vs 3 for the rules): the LSTM binds people to detected items that have no DIVA annotation. Some are real bags DIVA did not label, some are false detections; they cannot be scored as right or wrong, and the rules are more conservative. A higher binding threshold or a minimum item-track length would trade some coverage for fewer of these.
 4. Still small samples (13 owned items, 183–260 windows); results are consistent across seeds but need more data before strong claims.
 
+### Binding modes under one alert policy (VIRAT validation, 34 clips, 1.0 h; 14-feature ST-LSTM, 5 seeds; moderate rules)
+
+Scored by `evaluate_virat.py` inside the engine (same as the earlier binding tables). "Oracle" = ground-truth tracks; "end-to-end" = fine-tuned detector tracks.
+
+| Binding | Oracle correct | End-to-end correct | End-to-end unjudged | False alerts |
+| --- | --- | --- | --- | --- |
+| Rules | 8/13 | 6/13 | 3 | 0 |
+| Learned (ST-LSTM) | **12/13** | 6/13 | 5 | 0 |
+| **Hybrid** (ST-LSTM, rules fallback) | **12/13** | **7/13** | 7 | 0 |
+
+All five seeds give identical counts; every judged binding names the right owner. Inside the engine, learned-only end-to-end binding is 6/13 rather than the 7/13 of `evaluate_binding.py`, because the engine only applies a binding when the item is observed at or after the bind time (and drops items after `track_retention_s`). **Hybrid is the recommended mode**: it keeps the rules' bindings and adds the LSTM's (stationary owners, short co-motion), at no false-alarm cost on VIRAT. Alert behaviour on real thefts is measured on UCF-Crime next.
+
 ## Decisions and why
 
 | Decision | Why |
@@ -350,4 +365,5 @@ Reading:
 - [ ] UCF-Crime alert evaluation: tracking running, then `evaluate_ucf.py`.
 - [ ] Optional: re-tune rules on fine-tuned-detector tracks; try the fine-tuned detector on UCF-Crime.
 - [x] ST-LSTM on 60-frame pairwise windows: baseline, history features, per-pair binding (done).
-- [ ] ST-LSTM: plug per-pair binding into the alert FSM and score alerts on UCF-Crime; reduce unjudged bindings; pose ablation.
+- [x] ST-LSTM binding in the alert FSM (`--binding hybrid`); VIRAT: 0 false alerts.
+- [ ] Score UCF-Crime alerts for rules vs hybrid; streaming binder for live `watchdog video`; reduce unjudged bindings; pose ablation.

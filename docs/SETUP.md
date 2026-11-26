@@ -206,6 +206,14 @@ python scripts\evaluate_binding.py --data $DATA --split validation --runs (0..4 
     --report "$DATA\eval\binding_ft_hist.json"
 ```
 
+```powershell
+# Same alert engine, ST-LSTM binding: --binding learned (LSTM only) or hybrid (LSTM, then rules)
+python scripts\evaluate_virat.py --data $DATA --split validation --predictions "$DATA\tracks\virat_yolo11m-ft-e15_1280_botsort" `
+    --config configs\rules_virat_moderate.json --binding hybrid --stlstm "$DATA\runs\stlstm\hist_seed0" `
+    --report "$DATA\eval\fsm_virat_hybrid_seed0.json"
+# evaluate_ucf.py takes the same --binding / --stlstm options
+```
+
 ## 11. Git
 
 The repository is on `main`. `data/`, `weights/`, `runs/` and `*.pt` are ignored: never commit VIRAT data or weights trained on it (usage agreement). `.gitattributes` stores text with LF endings, so Windows and macOS/Linux clones match.
