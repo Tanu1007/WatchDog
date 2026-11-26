@@ -1,0 +1,14 @@
+{
+  "bind_duration_s": 0.2,
+  "bind_distance": 0.01,
+  "ambiguity_margin": 0.02,
+  "minimum_motion": 0.005,
+  "velocity_cosine_min": 0.1,
+  "stationary_speed": 0.012,
+  "owner_departure_distance": 0.2,
+  "contact_distance": 0.015,
+  "interaction_persistence_s": 1.2,
+  "occlusion_grace_s": 0.75,
+  "track_retention_s": 10.0,
+  "clear_duration_s": 1.0
+}
